@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Contacto'}) %>
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+		<!-- ACA VAN LAS COSAS DEL FORMULARIO de contacto -->
+		<div class="container mg-top">
+			<!-- ACA Va el titulo de la pagina -->
+				<div class="row justify-content-center"><h1>Contactanos</h1></div>
+			<div class="form-group justify-content-center">
+				<form action="/register" method="POST" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-12">
+							<label>Nombre:</label>
+							<input type="text" name="name" class="form-control" placeholder="Ej: Ana">
+						</div>
+						<div class="col-12">
+							<label>Apellido:</label>
+							<input type="text" name="lastname" class="form-control" placeholder="Ej: Pérez">
+						</div>
+						<div  class="col-12">
+							<label>Email:</label>
+							<input type="email"name="email" class="form-control" placeholder="Ej: email@server.com">
+						</div>
+						<div class="col-12">
+							<label>Mensaje:</label>
+							<textarea type="text" name="mensaje" class="form-control" placeholder="Ej: Hola, tengo una consulta..."></textarea>
+						</div>
+						<div  class="col-12">
+							<label></label>
+						<button type="submit" class="btn btn-amarillo btn-block">Enviar</button>
+						</div>
+					</div>
+					<!-- ↑↑ aca termina el div de ROW -->
+			</div>
+			<!-- ↑↑ aca termina el div de container de contacto -->
+		</form>
+	</div>
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+	<!-- ↓↓ aca termina el DIV main container ↓↓ -->
+	</div>
+	
+</body>
+</html>

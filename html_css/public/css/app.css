@@ -11,6 +11,10 @@ html, body {
   margin: 0;
   background-color: #000;
 }
+header{
+  background-color: #000;
+  display:block;
+}
 nav{
   margin: 0;
   padding: 0;
@@ -29,13 +33,30 @@ a{
   font-family: 'Bebas Neue', cursive;
   font-size: 24px;
 }
+a:hover{
+  color:#fff000;
+}
 p{
   font-family: 'Abel', sans-serif;
   font-size: 18px;
 }
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Bebas Neue', cursive;
+}
+h1{
+  color:#FFF000;
+  font-size: 48px;
+}
+.mg-top{
+  margin-top: 10px;
+}
 .container{
   background: #000;
   color: #ffffff;
+  /*border: solid 1px blue; */
+}
+.row{
+  /*border: solid 1px green; */
 }
 .logo{
   width:100%
@@ -67,6 +88,18 @@ p{
   color:#000;
   margin: 0;
   padding: 0;
-  
-
+}
+.form-group{
+  border:0px white solid;
+  padding:10px;
+  width:80%;
+  margin: 10px auto;
+  background-color: #000;
+}
+.btn-amarillo{
+  background-color: #FFF000;
+}
+.btn-amarillo:hover{
+  background-color: #6B6B6B;
+  color:#000;
 }

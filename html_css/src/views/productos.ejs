@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Productos'}) %>
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+		
+		<!-- ACA Va el titulo de la pagina -->
+			<div class="row justify-content-center"><h1>Nuestros Productos</h1></div>
+		
+		
+		<!-- "ID = main-content-title" donde va el titulo productos-->
+		<div class="row main-content-title" id="main-content-title-productos">
+			<div class="col-10 col-md-10">Productos</div>
+			<div class="col-2 col-md-2"><a href="#" alt="Mi Carrito"><i class="fa fa-shopping-cart"></i></a></div>
+		</div>
+		<div class="row" id="main-content-content">
+			<!-- Columna que contiene todo lo relativo a filtros -->
+			<div class="col-12 col-md-3 filtros" id="main-content-titulo-filtros">FILTROS
+				<div class="row filtros-content">
+					<!-- en esta col va titulo: MARCA -->
+					<div class="col-12"><strong>Marca</strong></div>
+						<!-- en esta col van los items de MARCA -->
+						<div class="col-6 col-md-12">
+							<input type="checkbox" name="marca" value="marca1">Marca 1<br>
+							<input type="checkbox" name="marca" value="marca2">Marca 2<br>
+							<input type="checkbox" name="marca" value="marca3">Marca 3<br>
+							<input type="checkbox" name="marca" value="marca4">Marca 4<br>
+							<input type="checkbox" name="marca" value="marca5">Marca 5<br>
+						</div>
+					<div class="col-12"><br><strong>Modelo</strong></div>
+						<div class="col-6 col-md-12">
+								<input type="checkbox" name="modelo" value="modelo1">Modelo 1<br>
+								<input type="checkbox" name="modelo" value="modelo2">Modelo 2<br>
+								<input type="checkbox" name="modelo" value="modelo3">Modelo 3<br>
+								<input type="checkbox" name="modelo" value="modelo4">Modelo 4<br>
+								<input type="checkbox" name="modelo" value="modelo5">Modelo 5<br>
+						</div>
+				</div>
+			</div>
+			<!-- columna en donde va el BUSCADOR, LOS PRODUCTOS ETC -->
+			<div class="col-12 col-md-9"id="main-content-items">
+				<!-- ROW en donde va el "ver todos y el BUSCADOR -->
+				<div class="row" id="main-content-buscador">
+					<div class="col-3 col-md-2">Ver Todos</div>
+					<div class="col-9 col-md-10">Buscar</div>
+				</div>
+				<!-- ROW en donde van los "product boxes" -->
+				<div class="row" id="main-content-productos-items">
+					<!-- IMAGENES DE PRODUCTOS:  "img-thumbnail" le pone un borde blanco a la foto-->
+						<div class="col-12 col-md-4"><p>Prod.Detail</p><img src="/images/node.jpg" alt="" class="rounded float-center img-fluid img-thumbnail"></div>
+						<div class="col-12 col-md-4"><p>Prod.Detail</p><img src="/images/node.jpg" alt="" class="rounded float-center img-fluid img-thumbnail"></div>
+						<div class="col-12 col-md-4"><p>Prod.Detail</p><img src="/images/node.jpg" alt="" class="rounded float-center img-fluid img-thumbnail"></div>
+						<div class="col-12 col-md-4"><p>Prod.Detail</p><img src="/images/node.jpg" alt="" class="rounded float-center img-fluid img-thumbnail"></div>
+						<div class="col-12 col-md-4"><p>Prod.Detail</p><img src="/images/node.jpg" alt="" class="rounded float-center img-fluid img-thumbnail"></div>
+						<div class="col-12 col-md-4"><p>Prod.Detail</p><img src="/images/node.jpg" alt="" class="rounded float-center img-fluid img-thumbnail"></div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+	<!-- ↓↓ aca termina el DIV main container ↓↓ -->
+	</div>
+	
+</body>
+</html>

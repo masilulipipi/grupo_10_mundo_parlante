@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Log In'}) %>
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+	
+			<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
+			<div class="row justify-content-center"><h1>Logueate</h1></div>
+			<div class="form-group justify-content-center">
+			<form action="/register" method="POST" enctype="multipart/form-data">
+				<div class="row">
+					
+					<div  class="col-12">
+						<label>Email:</label>
+						<input type="email"name="email" class="form-control" placeholder="Ej: email@server.com">
+					</div>
+					<div class="col-12">
+						<label>Contraseña:</label>
+						<input type="password" name="password" class="form-control" placeholder="******">
+					</div>
+					
+					<div  class="col-12">
+						<label></label>
+					<button type="submit" class="btn btn-amarillo btn-block" >Log In</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+	<!-- ↓↓ aca termina el DIV main container ↓↓ -->
+	</div>
+	
+</body>
+</html>
