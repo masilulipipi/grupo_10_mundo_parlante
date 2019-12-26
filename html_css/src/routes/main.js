@@ -25,6 +25,8 @@ const mainController = require('../controllers/mainController');
 router.get('/', mainController.root);
 /* GET - productos. */
 router.get('/productos', mainController.productos);
+/* GET - carrito. */
+router.get('/carrito', mainController.carrito);
 /* GET - contacto. */
 router.get('/contacto', mainController.contacto);
 /* GET - Quienes Somos. */

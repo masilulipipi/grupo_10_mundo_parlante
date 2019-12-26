@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Productos'}) %>
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+		<!-- Row para el titulo de tu carrito -->
+		<div class="row justify-content-center"><h1>Tu Carrito</h1></div>
+
+		<!-- Row para listar los articulos del carrito -->
+		<div class="container cont-prod-carrito">
+			<div class="row ">
+				<div class="col-3 align-self-center">
+					<img src="http://placekitten.com/200/200">
+						</div>
+						<div class="col-1"></div>
+				<div class="col-8 ficha-producto">
+					<div>
+						<h3>Nombre del Producto</h3>
+					</div>
+					<div>
+						<p>Marca: Una Marca</p>
+						<p>Modelo: 3X26C</p>
+						<p>Precio: $300</p>
+						<p>Cantidad: 2</p>
+					</div>
+					<div class="text-right"><button class="btn-info">Eliminar</button></div>
+				</div>  
+			</div>
+		</div>
+		<div class="container cont-prod-carrito">
+			<div class="row ">
+				<div class="col-3 align-self-center">
+					<img src="http://placekitten.com/200/200">
+						</div>
+						<div class="col-1"></div>
+				<div class="col-8 ficha-producto">
+					<div>
+						<h3>Nombre del Producto</h3>
+					</div>
+					<div>
+						<p>Marca: Otra Marca</p>
+						<p>Modelo: 3M28C</p>
+						<p>Precio: $600</p>
+						<p>Cantidad: 1</p>
+					</div>
+					<div class="text-right"><button class="btn-info">Eliminar</button></div>
+				</div>  
+			</div>
+		</div>
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+	<!-- ↓↓ aca termina el DIV main container ↓↓ -->
+	</div>
+	
+</body>
+</html>

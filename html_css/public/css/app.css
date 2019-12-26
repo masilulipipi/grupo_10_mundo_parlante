@@ -3,7 +3,7 @@
 }
 [class*=col-]{
   /* para hacer un debug*/
-  /* border: solid 1px red; */
+  /* border: solid 1px red;*/
   /* margin: 0; */
 }
 html, body {
@@ -47,6 +47,7 @@ h1{
   color:#FFF000;
   font-size: 48px;
 }
+
 .mg-top{
   margin-top: 10px;
 }
@@ -102,4 +103,11 @@ h1{
 .btn-amarillo:hover{
   background-color: #6B6B6B;
   color:#000;
+}
+.cont-prod-carrito{
+  background-color: #2B2B2B;
+  margin-top: 10px;
+}
+.p-2{
+  border:1px red solid;
 }

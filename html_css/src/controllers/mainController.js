@@ -39,6 +39,9 @@ const controller = {
 	productos:(req, res) => {
 		res.render('productos');
 	},
+	carrito:(req, res) => {
+		res.render('carrito');
+	},
 	contacto:(req, res) => {
 		res.render('contacto');
 	},
