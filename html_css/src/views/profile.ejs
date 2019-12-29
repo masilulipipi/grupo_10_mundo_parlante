@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Perfil'}) %>
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container" id="main-container">
+		<!-- Header -->
+        <%- include('partials/header') %>
+        
+        <!-- aca va el contenido ****************************** -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4 text-center">
+                <img src="/images/avatars/<%= user.avatar %>" class="img-thumbnail" width="200">
+            </div>
+            <div class="col-12 col-md-8 text-center">
+                <h3 class="text-amarillo">Welcome: <%= `${user.name} ${user.lastname}` %></h3>
+                <a href="mailto:<%= user.email %>" class="mail"><%= user.email %></a>
+            </div>
+        </div>
+        <!-- ↑↑↑ aca termina el contenido ****************************** -->
+
+        <!-- Footer -->
+		<%- include('partials/footer') %>
+        <!-- ↓↓ aca termina el DIV main container ↓↓ -->
+        </div>
+</body>
+ </html>

@@ -25,6 +25,8 @@ const mainController = require('../controllers/mainController');
 router.get('/', mainController.root);
 /* GET - productos. */
 router.get('/productos', mainController.productos);
+/* GET - detalle productos. */
+router.get('/detalle/:id', mainController.detalle);
 /* GET - carrito. */
 router.get('/carrito', mainController.carrito);
 /* GET - contacto. */
@@ -37,6 +39,10 @@ router.get('/register', mainController.registerForm);
 router.post('/register', upload.single('avatar'), mainController.store);
 /* GET - Login. */
 router.get('/login', mainController.loginForm);
+/* POST - Login. */
+router.post('/login', mainController.processLogin);
+/* GET - Login. */
+router.get('/profile/:id', mainController.profile);
 
 
 module.exports = router;

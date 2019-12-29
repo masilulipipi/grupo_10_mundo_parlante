@@ -6,5 +6,37 @@
   "email": "paolaescudero@gmail.com",
   "password": "",
   "avatar": "user_avatar_1577221280654.jpeg"
+ },
+ {
+  "id": 2,
+  "name": "Lisa",
+  "lastname": "Simpson",
+  "email": "meatismurder@mail.com",
+  "password": "123",
+  "avatar": "user_avatar_1577578550085.PNG"
+ },
+ {
+  "id": 3,
+  "name": "DAilan",
+  "lastname": "Kifky",
+  "email": "unelefante@mail.com",
+  "password": "$2b$10$aS.5IAZH.qH6uddkNrCh3uh/wDMTFNhnTcpbEMkoODr47X3yOtobO",
+  "avatar": "user_avatar_1577578790932.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Rick",
+  "lastname": "Sanchez",
+  "email": "funeralswithcake@mail.com",
+  "password": "$2b$10$tZk.MYas30p5/4zJ30/I/u9NGV94lsphX6MmEPLlogeaj5DoIlguS",
+  "avatar": "user_avatar_1577579630725.PNG"
+ },
+ {
+  "id": 5,
+  "name": "Randy",
+  "lastname": "Marsh",
+  "email": "cockmagic@mail.com",
+  "password": "$2b$10$UQFtmNAvA0ZueCxoQcXfy.zPrMtZKDIj4JMY2Rj1yZ0Y7quEgh0o.",
+  "avatar": "user_avatar_1577580433156.PNG"
  }
 ]

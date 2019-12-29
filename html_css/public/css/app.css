@@ -47,9 +47,14 @@ h1{
   color:#FFF000;
   font-size: 48px;
 }
-
+.text-amarillo{
+  color:#FFF000;
+}
 .mg-top{
   margin-top: 10px;
+}
+.mg-right{
+  margin-right: 10px;
 }
 .container{
   background: #000;
@@ -99,6 +104,8 @@ h1{
 }
 .btn-amarillo{
   background-color: #FFF000;
+  font-family: 'Abel', sans-serif;
+  font-size: 16px;
 }
 .btn-amarillo:hover{
   background-color: #6B6B6B;
@@ -110,4 +117,14 @@ h1{
 }
 .p-2{
   border:1px red solid;
+}
+.mail{
+  font-family: 'Abel', sans-serif;
+  font-size: 18px;
+}
+.ficha-producto{
+  padding:15px;
+}
+.card-columns{
+  margin:0 10px;
 }

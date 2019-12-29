@@ -1,9 +1,10 @@
 const fs = require('fs');
-/*const path = require('path');*/
+const bcrypt = require('bcrypt');
 
 // Constants
 const userFilePath = __dirname + '/../data/users.json';
-/*const users = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));*/
+const productosFilePath = __dirname + '/../data/productos.json';
+const productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8')); //una vez declarada usarla en el controlador de la pagina en la q va a ser usada, tipo tirar la variable productos abajo del controller de la pagina 'productos'
 
 // ************ Function to Read an HTML File ************
 /*function readHTML (fileName) {
@@ -31,13 +32,39 @@ function generateUserId () {
 	let lastUser = allUsers.pop();
 	return lastUser.id + 1;
 }
+function getUserByEmail(email) {
+	let allUsers = getAllUsers();
+	let userToFind = allUsers.find(oneUser => oneUser.email == email);
+	return userToFind;
+}
+
+function getUserById(id) {
+	let allUsers = getAllUsers();
+	let userToFind = allUsers.find(oneUser => oneUser.id == id);
+	return userToFind;
+}
+
+/// FUNCIONES para productos
+function getAllProducts () {
+	let productsFileContent = fs.readFileSync(productosFilePath, 'utf-8');
+	let finalProducts = productsFileContent == '' ? [] : JSON.parse(productsFileContent); 
+	return finalProducts;
+}
+function getProductById(id) {
+	let allProducts = getAllProducts();
+	let ProductToFind = allProducts.find(oneProduct => oneProduct.id == id);
+	return ProductToFind;
+}
 
 const controller = {
 	root: (req, res) => {
 		res.render('index');
 	},
 	productos:(req, res) => {
-		res.render('productos');
+		res.render('productos', {
+			productos //esto es para poder usar la variable en el EJS
+		});
+	
 	},
 	carrito:(req, res) => {
 		res.render('carrito');
@@ -58,8 +85,7 @@ const controller = {
 			name: req.body.name,
 			lastname: req.body.lastname,
 			email: req.body.email,
-            //password: bcrypt.hashSync(req.body.password, 10),
-			password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
 			bio:req.body.bio,
 			avatar: req.file.filename
 		};
@@ -73,6 +99,33 @@ const controller = {
 	loginForm:(req, res) => {
         //res.send('Página de login'); ** ESTO ES PARA COMPROBAR SI ANDA
         res.render('login');
+	},
+	processLogin: (req, res) => {
+		// Buscar usuario por email
+		let user = getUserByEmail(req.body.email);
+
+		// Si encontramos al usuario
+		if (user != undefined) {
+			// Al ya tener al usuario, comparamos las contraseñas
+			if (bcrypt.compareSync(req.body.password, user.password)) {
+				// Redireccionamos al visitante a su perfil
+				res.redirect(`/profile/${user.id}`);
+			} else {
+				res.send('Credenciales inválidas');
+			}
+		} else {
+			res.send('No hay usuarios registrados con ese email');
+		}
+	},
+	profile: (req, res) => {
+		let userLoged = getUserById(req.params.id);
+
+		res.render('profile', { user: userLoged });
+	},
+	detalle: (req, res) => {
+		let productLoged = getProductById(req.params.id);
+
+		res.render('detalle', { productos: productLoged });
 	}
 }
 
