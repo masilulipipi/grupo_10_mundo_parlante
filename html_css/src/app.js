@@ -4,6 +4,9 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
+const session = require('express-session');
+const authLocals = require('./middlewares/authLocals');
+const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -14,6 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
+app.use(session({
+  secret: 'Mundo Parlante Session',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(userCookieMiddleware);
+app.use(authLocals);
+
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
@@ -22,9 +33,11 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
-const mainRouter = require('./routes/main');
+const mainRouter = require('./routes/mainRoutes');
 app.use('/', mainRouter);
 
+const usersRouter = require('./routes/usersRoutes');
+app.use('/users', usersRouter);
 
 
 // ************ DON'T TOUCH FROM HERE ************

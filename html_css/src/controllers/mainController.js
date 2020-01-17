@@ -50,82 +50,75 @@ function getAllProducts () {
 	let finalProducts = productsFileContent == '' ? [] : JSON.parse(productsFileContent); 
 	return finalProducts;
 }
+function storeProduct (newProductData) {
+	let allProducts = getAllProducts();
+	allProducts.push(newProductData);
+	fs.writeFileSync(userFilePath, JSON.stringify(allProducts, null, ' '));
+}
+
+function generateProductId () {
+	let allProducts = getAllProducts();
+	if (allProducts.length == 0) {
+		return 1;
+	}
+	let lastProduct = allProducts.pop();
+	return lastProduct.id + 1;
+}
 function getProductById(id) {
 	let allProducts = getAllProducts();
 	let ProductToFind = allProducts.find(oneProduct => oneProduct.id == id);
 	return ProductToFind;
 }
 
+
 const controller = {
 	root: (req, res) => {
-		res.render('index');
+		
+		res.render('index',);
 	},
 	productos:(req, res) => {
+		
 		res.render('productos', {
 			productos //esto es para poder usar la variable en el EJS
 		});
-	
+	},
+	productosAdd:(req, res) => {
+		
+		res.render('productosAdd',);
+	},
+	processProductosAdd: (req, res) => {
+		let productFinalData = {
+			id: generateProductId(),
+			name: req.body.name,
+			marca: req.body.marca,
+			modelo: req.body.modelo,
+            precio: req.body.precio,
+			descripcion :req.body.descripcion,
+			foto: req.file.filename
+		};
+		
+		// Guardar el producto
+		storeProduct(productFinalData);
+		
+		// Redirección al login
+		res.redirect('/productos');
 	},
 	carrito:(req, res) => {
 		res.render('carrito');
 	},
 	contacto:(req, res) => {
+		
 		res.render('contacto');
 	},
 	about:(req, res) => {
-		res.render('quienes-somos');
-	},
-	registerForm: (req, res) => {
-        //res.send('Página de Registro'); ** ESTO ES PARA COMPROBAR SI ANDA
-        res.render('register');
-	},
-	store: (req, res) => {
-		let userFinalData = {
-			id: generateUserId(),
-			name: req.body.name,
-			lastname: req.body.lastname,
-			email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-			bio:req.body.bio,
-			avatar: req.file.filename
-		};
 		
-		// Guardar al usario
-		storeUser(userFinalData);
-		
-		// Redirección al login
-		res.redirect('/login');
-	},
-	loginForm:(req, res) => {
-        //res.send('Página de login'); ** ESTO ES PARA COMPROBAR SI ANDA
-        res.render('login');
-	},
-	processLogin: (req, res) => {
-		// Buscar usuario por email
-		let user = getUserByEmail(req.body.email);
-
-		// Si encontramos al usuario
-		if (user != undefined) {
-			// Al ya tener al usuario, comparamos las contraseñas
-			if (bcrypt.compareSync(req.body.password, user.password)) {
-				// Redireccionamos al visitante a su perfil
-				res.redirect(`/profile/${user.id}`);
-			} else {
-				res.send('Credenciales inválidas');
-			}
-		} else {
-			res.send('No hay usuarios registrados con ese email');
-		}
-	},
-	profile: (req, res) => {
-		let userLoged = getUserById(req.params.id);
-
-		res.render('profile', { user: userLoged });
+		res.render('quienes-somos',);
 	},
 	detalle: (req, res) => {
+	
 		let productLoged = getProductById(req.params.id);
 
-		res.render('detalle', { productos: productLoged });
+		res.render('detalle', { productos: productLoged});
 	}
 }
 

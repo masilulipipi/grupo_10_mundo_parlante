@@ -1,7 +1,50 @@
-[{"id":1,"nombre":"Christen","marca":"COUMADIN","modelo":"HLF","precio":951.86,"detalle":"Aliquam erat volutpat."},
-{"id":2,"nombre":"Brandy","marca":"Morphine Sulfate","modelo":"CBAN","precio":638.92,"detalle":"Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam."},
-{"id":3,"nombre":"Heida","marca":"Sniffles","modelo":"HYXE","precio":728.11,"detalle":"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis."},
-{"id":4,"nombre":"Fletcher","marca":"Venlafaxine","modelo":"CLDX","precio":532.93,"detalle":"Suspendisse potenti."},
-{"id":5,"nombre":"Johnathon","marca":"Ring Relief","modelo":"BIS","precio":521.91,"detalle":"Aenean fermentum. Donec ut mauris eget massa tempor convallis."},
-{"id":6,"nombre":"Padgett","marca":"Coppertone Dry","modelo":"RMT","precio":687.55,"detalle":"Phasellus sit amet erat."}
+[
+    {
+        "id": 1,
+        "nombre": "Christen",
+        "marca": "COUMADIN",
+        "modelo": "HLF",
+        "precio": 951.86,
+        "detalle": "Aliquam erat volutpat."
+    },
+    {
+        "id": 2,
+        "nombre": "Brandy",
+        "marca": "Morphine Sulfate",
+        "modelo": "CBAN",
+        "precio": 638.92,
+        "detalle": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam."
+    },
+    {
+        "id": 3,
+        "nombre": "Heida",
+        "marca": "Sniffles",
+        "modelo": "HYXE",
+        "precio": 728.11,
+        "detalle": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis."
+    },
+    {
+        "id": 4,
+        "nombre": "Fletcher",
+        "marca": "Venlafaxine",
+        "modelo": "CLDX",
+        "precio": 532.93,
+        "detalle": "Suspendisse potenti."
+    },
+    {
+        "id": 5,
+        "nombre": "Johnathon",
+        "marca": "Ring Relief",
+        "modelo": "BIS",
+        "precio": 521.91,
+        "detalle": "Aenean fermentum. Donec ut mauris eget massa tempor convallis."
+    },
+    {
+        "id": 6,
+        "nombre": "Padgett",
+        "marca": "Coppertone Dry",
+        "modelo": "RMT",
+        "precio": 687.55,
+        "detalle": "Phasellus sit amet erat."
+    }
 ]

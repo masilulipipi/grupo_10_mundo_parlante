@@ -38,5 +38,21 @@
   "email": "cockmagic@mail.com",
   "password": "$2b$10$UQFtmNAvA0ZueCxoQcXfy.zPrMtZKDIj4JMY2Rj1yZ0Y7quEgh0o.",
   "avatar": "user_avatar_1577580433156.PNG"
+ },
+ {
+  "id": 6,
+  "name": "Sandra",
+  "lastname": "Milena",
+  "email": "milena@mail.com",
+  "password": "$2b$10$V/biBYGhpzQuptv4j9z6k.LrgtLg3SjmE2ubb4zQtuT9SpZoex2UW",
+  "avatar": "user_avatar_1579203156775.PNG"
+ },
+ {
+  "id": 7,
+  "name": "Alexa",
+  "lastname": "Contreras",
+  "email": "alexaila@outlook.com",
+  "password": "$2b$10$mxhymWmcHA7ZhY7m//icXe19t0yybSpY7TO8Rkdc0/Rf5oo6zK6MG",
+  "avatar": "user_avatar_1579216350838.jpg"
  }
 ]
