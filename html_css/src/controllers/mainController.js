@@ -2,47 +2,9 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 
 // Constants
-const userFilePath = __dirname + '/../data/users.json';
+
 const productosFilePath = __dirname + '/../data/productos.json';
 const productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8')); //una vez declarada usarla en el controlador de la pagina en la q va a ser usada, tipo tirar la variable productos abajo del controller de la pagina 'productos'
-
-// ************ Function to Read an HTML File ************
-/*function readHTML (fileName) {
-	let filePath = path.join(__dirname, `/../views/${fileName}.html`);
-	let htmlFile = fs.readFileSync(filePath, 'utf-8');
-	return htmlFile;
-}*/
-function getAllUsers () {
-	let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
-	let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent); 
-	return finalUsers;
-}
-
-function storeUser (newUserData) {
-	let allUsers = getAllUsers();
-	allUsers.push(newUserData);
-	fs.writeFileSync(userFilePath, JSON.stringify(allUsers, null, ' '));
-}
-
-function generateUserId () {
-	let allUsers = getAllUsers();
-	if (allUsers.length == 0) {
-		return 1;
-	}
-	let lastUser = allUsers.pop();
-	return lastUser.id + 1;
-}
-function getUserByEmail(email) {
-	let allUsers = getAllUsers();
-	let userToFind = allUsers.find(oneUser => oneUser.email == email);
-	return userToFind;
-}
-
-function getUserById(id) {
-	let allUsers = getAllUsers();
-	let userToFind = allUsers.find(oneUser => oneUser.id == id);
-	return userToFind;
-}
 
 /// FUNCIONES para productos
 function getAllProducts () {
@@ -53,7 +15,7 @@ function getAllProducts () {
 function storeProduct (newProductData) {
 	let allProducts = getAllProducts();
 	allProducts.push(newProductData);
-	fs.writeFileSync(userFilePath, JSON.stringify(allProducts, null, ' '));
+	fs.writeFileSync(productosFilePath, JSON.stringify(allProducts, null, ' '));
 }
 
 function generateProductId () {
@@ -89,12 +51,13 @@ const controller = {
 	processProductosAdd: (req, res) => {
 		let productFinalData = {
 			id: generateProductId(),
-			name: req.body.name,
+			nombre: req.body.name,
 			marca: req.body.marca,
 			modelo: req.body.modelo,
             precio: req.body.precio,
-			descripcion :req.body.descripcion,
-			foto: req.file.filename
+			descripcion: req.body.descripcion,
+			/* Lo que dive ('avatar') es el name del campo en la vista */
+			avatar: req.file.filename
 		};
 		
 		// Guardar el producto
@@ -102,6 +65,8 @@ const controller = {
 		
 		// Redirección al login
 		res.redirect('/productos');
+		console.log(productFinalData);
+		
 	},
 	carrito:(req, res) => {
 		res.render('carrito');

@@ -56,6 +56,8 @@ const controller = {
 		
 		// Redirección al login
 		res.redirect('/users/login');
+		console.log(userFinalData);
+		
 	},
 	loginForm:(req, res) => {
         

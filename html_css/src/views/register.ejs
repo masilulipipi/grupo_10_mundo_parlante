@@ -4,12 +4,12 @@
 <%- include('partials/head', {title: 'Registro'}) %>
 <body>
 	<!-- ID Main container es el que contiene toooooodo -->
-	<div class="container" id="main-container">
+	<div class="container-fluid" id="main-container">
 		<!-- Header -->
 		<%- include('partials/header') %>
 	
 			<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
-			<div class="row justify-content-center"><h1>Registrate</h1></div>
+			<div class="row titulo-seccion justify-content-center"><h1>Registrate</h1></div>
 			<div class="form-group justify-content-center">
 			<form action="/users/register" method="POST" enctype="multipart/form-data">
 				<div class="row">

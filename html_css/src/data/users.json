@@ -54,5 +54,21 @@
   "email": "alexaila@outlook.com",
   "password": "$2b$10$mxhymWmcHA7ZhY7m//icXe19t0yybSpY7TO8Rkdc0/Rf5oo6zK6MG",
   "avatar": "user_avatar_1579216350838.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Stan",
+  "lastname": "Marsh",
+  "email": "everythingsucks@mail.com",
+  "password": "$2b$10$tcbettQyW.evsonmM8T6yuUrJNU7bhQQx3gbQlO/NT6muXjaB1KSC",
+  "avatar": "user_avatar_1580509324852.PNG"
+ },
+ {
+  "id": 9,
+  "name": "Marge",
+  "lastname": "Bouvier",
+  "email": "marge@mail.com",
+  "password": "$2b$10$DMPdxjrxmrEIq0YqQE/zseU08DCSHIKZolHYdxnL4YqMUEk87lQke",
+  "avatar": "user_avatar_1580584879034.PNG"
  }
 ]

@@ -1,11 +1,11 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
+const multer2 = require('multer');
 const path = require('path');
 
 //para guardar los datos en productos.json***
-const storageDisk = multer.diskStorage({
+const storageDiskProducts = multer2.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, __dirname + '/../../public/images/productos');
 	},
@@ -15,7 +15,8 @@ const storageDisk = multer.diskStorage({
 	}
 });
 
-const upload = multer({ storage: storageDisk });
+//no cambiar lo que dice {storage:} - lo demas se puede cambiar todo
+const upload2 = multer2({ storage: storageDiskProducts });
 
 
 // ************ Controller Require ************
@@ -29,8 +30,8 @@ router.get('/productos', mainController.productos);
 /* GET - productos. */
 router.get('/productosAdd', mainController.productosAdd);
 
-/* POST - productos add. */
-router.post('/productosAdd', upload.single('avatar'), mainController.processProductosAdd);
+/* POST - productos add. */ /* Lo que dive ('avatar') es el name del campo en la vista */
+router.post('/productosAdd', upload2.single('avatar'), mainController.processProductosAdd);
 
 /* GET - detalle productos. */
 router.get('/productos/detalle/:id', mainController.detalle);
