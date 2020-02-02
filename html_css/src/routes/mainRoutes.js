@@ -27,14 +27,23 @@ router.get('/', mainController.root);
 
 /* GET - productos. */
 router.get('/productos', mainController.productos);
+
+/* >>>>>>>>>>>>>>>>> CREAR PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
 /* GET - productos. */
-router.get('/productosAdd', mainController.productosAdd);
+router.get('/productosAdd', mainController.create);
 
-/* POST - productos add. */ /* Lo que dive ('avatar') es el name del campo en la vista */
-router.post('/productosAdd', upload2.single('avatar'), mainController.processProductosAdd);
+/* POST - productos add. */ /* Lo que dive ('image') es el name del campo en la vista */
+router.post('/productosAdd', upload2.single('image'), mainController.store);
 
-/* GET - detalle productos. */
+/* >>>>>>>>>>>>>>>>> DETALLE PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
 router.get('/productos/detalle/:id', mainController.detalle);
+
+/* • • • • • • EDITAR PRODUCTO • • • • • • */
+router.get('/productos/editar/:id', mainController.edit);
+router.post('/productos/editar/:id', upload2.single('image'), mainController.update);
+
+/* >>>>>>>>>>>>>>>>> BORRAR PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
+router.post ('/borrar/:id', mainController.borrar);
 
 /* GET - carrito. */
 router.get('/carrito', mainController.carrito);

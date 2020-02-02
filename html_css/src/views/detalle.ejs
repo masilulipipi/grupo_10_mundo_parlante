@@ -12,16 +12,36 @@
        
         <div class="row mt-3 bg-dark py-3 justify-content-center">
             <div class="col-12 col-md-4 text-right">
-                <img src="../../images/productos/<%= productos.avatar %>" class="img-thumbnail" width="200">
+                <img src="../../images/productos/<%= product.image %>" class="img-thumbnail" width="200">
+                <br> <br>
+                <p>Producto cargado por: <b><%= product.user.first_name %> <%= product.user.last_name %></b></p>
+                <p>ID: <b><%= product.user.id %></b></p>
             </div>
             <div class="col-12 col-md-6">
-                <h3><%= `${productos.nombre}` %></h3>
-                <p>Marca: <%= productos.marca %></p>
-                <p>Modelo: <%= productos.modelo %></p>
-                <p>Precio: $<%= productos.precio %></p>
-                <p>Descripción: <%= productos.descripcion %></p>
+                <h3><%= `${product.name}` %></h3>
+                <p>Marca: <%= product.brand.name %></p>
+                <p>Modelo: <%= product.model %></p>
+                <p>Precio: $<%= product.price %></p>
+                <p>Descripción: <%= product.description %></p>
                 <hr>
-                <a href="/productos" class="font-abel">◄ Volver a productos</a>
+                
+                
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <form action="/borrar/<%=product.id%>" method="POST">
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i> Borrar Producto</button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <form action="/productos/editar/<%=product.id%>">
+                            <button class="btn btn-success" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Editar Producto</button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                    <div class="row mt-2 pl-3">
+                        <a href="/productos" class="font-abel">◄ Volver a productos</a>
+                    </div>
             </div>
         </div>
         <!-- ↑↑↑ aca termina el contenido ****************************** -->

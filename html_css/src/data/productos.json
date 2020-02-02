@@ -52,5 +52,14 @@
   "precio": "9540",
   "descripcion": "El G Five combina generosos niveles de audición y respuesta de frecuencia extendida con el rendimiento neutral y sin color que nos ha convertido en un referente en el mundo de la grabación profesional. Esto significa que experimentará el mismo sonido equilibrado y dinámico, sea cual sea el volumen que elija para ejecutar su G Fives, ya sea que esté disfrutando de música, películas, televisión o juegos.",
   "avatar": "product_avatar_1580588646115.png"
+ },
+ {
+  "id": 7,
+  "nombre": "Una",
+  "marca": "Prenda",
+  "modelo": "Dignas",
+  "precio": "1231",
+  "descripcion": "solo estaba bromeando Monty",
+  "image": "product_avatar_1580601606154.png"
  }
 ]

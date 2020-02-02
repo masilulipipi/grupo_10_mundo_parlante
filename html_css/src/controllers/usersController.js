@@ -43,8 +43,8 @@ const controller = {
 	store: (req, res) => {
 		let userFinalData = {
 			id: generateUserId(),
-			name: req.body.name,
-			lastname: req.body.lastname,
+			name: req.body.first_name,
+			lastname: req.body.last_name,
 			email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
 			bio:req.body.bio,
