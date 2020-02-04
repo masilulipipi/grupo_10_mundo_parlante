@@ -37,8 +37,12 @@ function getProductById(id) {
 
 const controller = {
 	root: (req, res) => {
-		
-		res.render('index',);
+		const isLogged = req.session.userId ? true : false;
+		/* let userLogged = getUserById(req.session.userId); */
+		/* let userLogged = db.Users.findByPk(req.session.userId)
+		.then(resultado => {
+			return req.session.user = resultado}); */
+		res.render('index', {isLogged});
 	}/* ,
 	productos:(req, res) => {
 		
@@ -154,8 +158,21 @@ const controller = {
             where: {
                 id: req.params.id
             }
-        });
-        res.redirect('/productos/detalle/'+req.params.id)
+		})
+		.then(productSaved => {
+			// let categories = req.body.categories;
+			// for (const oneCategory of categories) {
+			// 	// Guardar en la tabla pivot
+			// 	db.CategoriesProducts
+			// 		.create({
+			// 			product_id: productSaved.id,
+			// 			category_id: oneCategory
+			// 		})
+			// }
+			res.redirect('/productos/detalle/'+req.params.id)
+		})
+		.catch(error => console.log(error));
+        
     },
 
 	carrito:(req, res) => {

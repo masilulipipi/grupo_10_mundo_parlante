@@ -30,7 +30,23 @@
 					</div> 
 					<div class="col-12">
 						<label>Marca:</label>
-						<input type="number" name="brand_id" value="<%= product.brand_id %>"  class="form-control" placeholder="Ej: BENQ">
+						<!-- <input type="number" name="brand_id" value="%= product.brand_id %>"  class="form-control" placeholder="Ej: BENQ"> -->
+						<select name="brand_id" class="form-control">
+							<option value="">Elegí una marca</option>
+							<% for (let i = 0; i < brand.length; i++) {%> 
+								<% if (brand[i].id == product.brand_id) {%>
+					
+									<option value="<%= brand[i].id%>" selected>
+										<%= brand[i].name%>
+									</option>
+									
+								<%} else {%>
+									<option value="<%= brand[i].id%>">
+										<%= brand[i].name%>
+									</option>
+								<%}%>
+							<%}%>
+							</select>
 					</div>
 					<div  class="col-12">
 						<label>Modelo:</label>

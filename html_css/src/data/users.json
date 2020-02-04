@@ -78,5 +78,13 @@
   "email": "srburros@mail.com",
   "password": "$2b$10$CzbrtBRmunXi00gt/Q7DpOFzo.PMrvThlDKz0mj14V.M2sdbtIIdm",
   "avatar": "user_avatar_1580601555334.png"
+ },
+ {
+  "id": 11,
+  "name": "registro",
+  "lastname": "JSON",
+  "email": "registro@mail.com",
+  "password": "$2b$10$498tXl5JcThfuXhAq9VJWuAHAgPvMMhkesASCJIt8n9VaIj9z1Kk2",
+  "avatar": "user_avatar_1580677166095.jpg"
  }
 ]

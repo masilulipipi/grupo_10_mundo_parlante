@@ -35,7 +35,14 @@ router.get('/login', usersController.loginForm);
 router.post('/login', usersController.processLogin);
 
 /* GET - Login. */
-router.get('/profile', usersController.profile);
+router.get('/listadoUsers', usersController.show);
+
+/* GET - Login. */
+router.get('/profile/:id', usersController.profile);
+
+/*  EDITAR */
+router.get('/editarUser/:id', usersController.edit);
+router.post('/editarUser/:id', upload.single('avatar'), usersController.update);
 
 /* GET - /users/logout */
 router.get('/logout', usersController.logout);

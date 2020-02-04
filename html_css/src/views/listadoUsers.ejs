@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Listado Usuarios'}) %>
+
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container-fluid justify-content-center" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+
+		<!-- TITULO SECCION -->
+		<div class="row bg-dark">
+			<div class="col-12 text-center mt-3">
+				<h1>Listado de Usuarios</h1>
+			</div>
+		</div>
+			
+ 				<div class="row">
+					<div class="col-12 my-2">
+                        <% users.forEach(oneUser => { %> 
+                        <ul>
+                                <li class="text-amarillo"><%= oneUser.id %> : <%= oneUser.email %></li>
+                                <ul>
+                                   <a href="/users/profile/<%= oneUser.id %>"> <li>Nombre completo: <%= oneUser.first_name %> <%= oneUser.last_name %></li></a>
+                                </ul>
+                        </ul>
+                        <hr>
+                        <% }); %>
+					</div>
+				</div> 
+				
+			
+		</div>
+
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+		<!-- ↓↓ aca termina el DIV main container ↓↓ -->
+	</div>
+
+</body>
+
+</html>

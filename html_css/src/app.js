@@ -5,8 +5,11 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const session = require('express-session');
-const authLocals = require('./middlewares/authLocals');
+/* const authLocals = require('./middlewares/authLocals'); */
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
+const authMiddleware = require('./middlewares/authMiddleware');
+const guestMiddleware = require('./middlewares/guestMiddleware');
+const authLocals = require('./middlewares/authLocals');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -23,6 +26,8 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(userCookieMiddleware);
+/* app.use(authMiddleware);
+app.use(guestMiddleware); */
 app.use(authLocals);
 
 

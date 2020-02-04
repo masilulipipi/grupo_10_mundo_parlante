@@ -26,8 +26,14 @@
 						<input type="file" name="image" class="form-control">
 					</div>
 					<div class="col-12">
-						<label>Marca:</label>
-						<input type="number" name="brand_id" class="form-control" placeholder="Ej: BENQ">
+						<label>Marca:
+						<!-- <input type="number" name="brand_id" class="form-control" placeholder="Ej: BENQ"> -->
+						<select name="brand_id" class="form-control" > 
+							<option value="">Elegí una marca</option>
+							<% brands.forEach(oneBrand => { %>
+							<option value="<%= oneBrand.id %>"> <%= oneBrand.name %> </option>
+							<% }) %>
+						</select>
 					</div>
 					<div  class="col-12">
 						<label>Modelo:</label>

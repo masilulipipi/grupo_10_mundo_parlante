@@ -13,15 +13,15 @@
 		<div class="col-12 col-md-3 align-self-center">
 	<!-- <navbar class="d-flex justify-content-end"> -->
         <ul class="nav nav-fill flex-column flex-md-row d-flex align-items-stretch align-items-md-center justify-content-end">
-			<% if (isAuthenticated) { %>
+			<% if (isAuthenticated == true ) { %>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
 					<img src="/images/avatars/<%= user.avatar %>" width="40" style="border-radius: 100%;">
-					<span class="f-12">Hi <%= user.name %></span>
+					<span class="f-12">Hi <%= user.first_name %></span>
 				</a>
 				<div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
-					<a class="dropdown-item font-abel" href="/users/profile">My profile</a>
+					<a class="dropdown-item font-abel" href="/users/profile/<%= user.id %>">My profile</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item font-abel" href="/users/logout">Logout</a>
 				</div>
