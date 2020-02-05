@@ -16,17 +16,11 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
-function userCookieMiddleware (req, res, next) {
-	if (req.cookies.userIdCookie != undefined) {
-		/* let user = getUserById(req.cookies.userIdCookie); */
-		 /* console.log(user); */
-		 db.Users.findByPk(req.cookies.userIdCookie)
-	.then(resultado => {
-	
-	return req.session.user = resultado.Users.dataValues});
-		/* let user = resultado */
-	}
-	next();
+const userCookieMiddleware = async (req, res, next) => {
+    if (req.cookies.userIdCookie != undefined) {
+        let usuario = await db.Users.findByPk(req.cookies.userIdCookie);
+        req.session.user = usuario
+    }
+    next();
 }
-
 module.exports = userCookieMiddleware;

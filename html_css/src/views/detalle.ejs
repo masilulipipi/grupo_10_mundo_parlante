@@ -25,7 +25,7 @@
                 <p>Descripción: <%= product.description %></p>
                 <hr>
                 
-                
+            <% if (isAuthenticated == true ) { %>    
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <form action="/borrar/<%=product.id%>" method="POST">
@@ -39,6 +39,7 @@
                     </div>
                 </div>
                 <hr>
+            <% } %>
                     <div class="row mt-2 pl-3">
                         <a href="/productos" class="font-abel">◄ Volver a productos</a>
                     </div>
