@@ -5,7 +5,7 @@ const sequelize = db.sequelize;
 
 // Constants
 
-const productosFilePath = __dirname + '/../data/productos.json';
+/* const productosFilePath = __dirname + '/../data/productos.json';
 const productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8')); //una vez declarada usarla en el controlador de la pagina en la q va a ser usada, tipo tirar la variable productos abajo del controller de la pagina 'productos'
 
 /// FUNCIONES para productos
@@ -33,7 +33,7 @@ function getProductById(id) {
 	let ProductToFind = allProducts.find(oneProduct => oneProduct.id == id);
 	return ProductToFind;
 }
-
+ */
 
 const controller = {
 	root: (req, res) => {
