@@ -67,7 +67,9 @@ const controller = {
 	filter:(req, res) => {
 		 
 		/* console.log(req.body.marca); */
+		/* defino pedido product afuera para usarla 2 veces en el if */
 		let pedidoProduct
+		/* si el req.body.marca me manda algun ID hago un find all con where */
 		if(req.body.marca != undefined){
 			pedidoProduct = db.Products.findAll({
 				where: {
@@ -75,27 +77,22 @@ const controller = {
 					brand_id: req.body.marca
 				}
 			});
-			
+		/* si el req.body.marca me vuelve undefined, lo convierto en objeto y hago findAll() */
+		/* para q me traiga TODOS los productos. */
+		/* Hay que convertilo en objeto para que cuando pase por el .then */
+		/* se mantenga el array q le pido que cree */
 		}else{
 			req.body.marca = []
 			pedidoProduct = db.Products.findAll();
 		}
-	/* let pedidoProduct = db.Products.findAll({
-			where: {
-
-				brand_id: req.body.marca
-			}
-		});
-		 */
-	
 	let pedidoBrand = db.Brands.findAll();
+
 	   Promise.all([pedidoProduct, pedidoBrand])
+	   /* defino un 3er parametro para saber q IDs estan seleccionados */
 			.then(function([products, brands, brands_selected]){
 				
-			
+			 /* convierto los datos q vienen en el req.body.marca en array para poder iteralo en la vista */
 			res.render('productos', {products:products, brands:brands, brands_selected:Array.from(req.body.marca)});
-			console.log("brands_selected: ");
-			console.log(brands_selected);
 			
 		}) 
 	

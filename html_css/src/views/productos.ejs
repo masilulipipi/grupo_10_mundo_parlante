@@ -25,22 +25,24 @@
 				</div>
 				<hr class="no-display-sm">
 				<div class="row no-display-sm">
-					<div class="col-8 font-abel">
+					<div class="col-12 font-abel">
 						<h4>Filtrar por Marca</h4>
 					</div>
-					<div class="col-4 font-abel">
-						<a href="/productos"> Ver todos</a>
-					</div>
+					
 
 					<div class="col-12 font-abel">
 						<form action="/productos" method="POST">
 							<!-- para que las marcas las cree solas -->
 							<% brands.forEach(oneBrand => { %>
+								<!-- el IF a continuacion es para saber que checkboxes estan checked -->
+								<!-- ponemos select en false -->
 								<% let select = false  %>
+								<!-- recorremos el array de brands_selected  -->
 								<% brands_selected.forEach(selectedBrand => { %>
+									<!-- si las brands de brads_selected coinciden con el brand.id cambiamos la variable "select" a true  -->
 									<% if(selectedBrand == oneBrand.id) {select = true} %>
 								<% }) %>
-
+									<!-- si select esta en true le ponemos 'checked' a ese checkbox y si no, se lo sacamos  -->
 								<% if(select == true) {%>
 									<input type="checkbox" name="marca" checked value="<%= oneBrand.id %>">
 								<%} else {%>
@@ -49,7 +51,7 @@
 								<label for="marca"><%= oneBrand.name %></label>
 								<br>
 							<% }) %>
-							<!-- si brand.id = undefined location url /productos -->
+							
 						</form>
 					</div>
 				</div>
@@ -92,10 +94,12 @@
 				</div>
 				<div class="row mt-1">
 					<div class="col-12 card-columns">
+						<!-- con este fo busca todos los productos -->
 						<% products.forEach(oneProduct => { %>
 						<div class="card bg-wh">
 							<div class="car-img-top"></div>
 							<div class="card-body">
+								<!-- aca crea un link para acceder al detalle con el id del prod -->
 								<a href="/productos/detalle/<%= oneProduct.id %>"><img
 										src="../../images/productos/<%= oneProduct.image %>" width="150px"
 										class="card-img-top" alt=""></a>
@@ -105,7 +109,7 @@
 									</a>
 								</div>
 								<div class="card-text">
-									<!-- <p class="text-right text-black">Marca: <%= oneProduct.brand_id%></p> -->
+									<!-- recorre las marca y selecciona el nombre de la marca segun el ID del producto q buscamos en el primer for -->
 									<% brands.forEach(oneBrand => { %>
 										<% if(oneBrand.id == oneProduct.brand_id){%>
 										<p class="text-left text-black">Marca: <%= oneBrand.name%></p>
