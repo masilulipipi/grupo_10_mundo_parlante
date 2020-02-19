@@ -25,24 +25,39 @@
 				</div>
 				<hr class="no-display-sm">
 				<div class="row no-display-sm">
-					<div class="col-12 font-abel"><h4>Filtrar por Marca</h4></div>
+					<div class="col-8 font-abel">
+						<h4>Filtrar por Marca</h4>
+					</div>
+					<div class="col-4 font-abel">
+						<a href="/productos"> Ver todos</a>
+					</div>
+
 					<div class="col-12 font-abel">
-						<input type="checkbox" name="marca" value="marca1">
-						<label for="marca">JBL</label>
-						<br>
-						<input type="checkbox" name="marca" value="marca2">
-						<label for="marca">Rock It</label><br>
-						<input type="checkbox" name="marca" value="marca3">
-						<label for="marca">Focal</label><br>
-						<input type="checkbox" name="marca" value="marca4">
-						<label for="marca">Bang & Olufsen</label><br>
-						<input type="checkbox" name="marca" value="marca5">
-						<label for="marca">Senheiser</label><br>
+						<form action="/productos" method="POST">
+							<!-- para que las marcas las cree solas -->
+							<% brands.forEach(oneBrand => { %>
+								<% let select = false  %>
+								<% brands_selected.forEach(selectedBrand => { %>
+									<% if(selectedBrand == oneBrand.id) {select = true} %>
+								<% }) %>
+
+								<% if(select == true) {%>
+									<input type="checkbox" name="marca" checked value="<%= oneBrand.id %>">
+								<%} else {%>
+									<input type="checkbox" name="marca" value="<%= oneBrand.id %>">
+								<% } %>
+								<label for="marca"><%= oneBrand.name %></label>
+								<br>
+							<% }) %>
+							<!-- si brand.id = undefined location url /productos -->
+						</form>
 					</div>
 				</div>
 				<hr class="no-display-sm">
 				<div class="row no-display-sm">
-					<div class="col-12 font-abel"><h4>Filtrar por Modelo</h4></div>
+					<div class="col-12 font-abel">
+						<h4>Filtrar por Modelo</h4>
+					</div>
 					<div class="col-12 font-abel">
 						<input type="checkbox" name="modelo" value="modelo1">
 						<label for="modelo">Profesionales</label>
@@ -61,36 +76,54 @@
 			<div class="col-12 col-md-7 text-left py-3">
 				<div class="row bg-bl">
 					<div class="col-12 col-md-6 pt-1 pl-2">
-					<h3 class="text-white ">NOVEDADES</h3>
+						<h3 class="text-white ">NOVEDADES</h3>
 					</div>
 					<% if (isAuthenticated == true ) { %>
 					<div class="col-12 col-md-6 pt-1 pl-2">
-						<p  class="text-white text-right"><a href="/productosAdd"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Producto</a></p >
+						<p class="text-white text-right"><a href="/productosAdd"><i class="fa fa-plus"
+									aria-hidden="true"></i> Agregar Producto</a></p>
+					</div>
+					<% } else {%>
+					<div class="col-12 col-md-6 pt-1 pl-2">
+						<p class="text-white text-right"><a href="/users/login"><i class="fa fa-plus"
+									aria-hidden="true"></i> Agregar Producto</a></p>
 					</div>
 					<% } %>
 				</div>
 				<div class="row mt-1">
 					<div class="col-12 card-columns">
 						<% products.forEach(oneProduct => { %>
-							<div class="card bg-wh">
-								<div class="car-img-top"></div>
-								<div class="card-body">
-									<a href="/productos/detalle/<%= oneProduct.id %>"><img src="../../images/productos/<%= oneProduct.image %>" width="150px" class="card-img-top" alt=""></a>
-									<div class="card-title">
-										<a href="/productos/detalle/<%= oneProduct.id %>"><h4 class="font-abel text-black pt-1"><%= oneProduct.name %></h4></a>
-									</div>
-									<div class="card-text">
-										<h4 class="text-right text-black">$<%= oneProduct.price %></h4>
-									</div>
-									<div class="card-link text-right">
-										<button class="btn-amarillo" alt="Agregar al carrito">Agregar al carrito</button>
-									</div>
+						<div class="card bg-wh">
+							<div class="car-img-top"></div>
+							<div class="card-body">
+								<a href="/productos/detalle/<%= oneProduct.id %>"><img
+										src="../../images/productos/<%= oneProduct.image %>" width="150px"
+										class="card-img-top" alt=""></a>
+								<div class="card-title">
+									<a href="/productos/detalle/<%= oneProduct.id %>">
+										<h4 class="font-abel text-black pt-1"><%= oneProduct.name %></h4>
+									</a>
+								</div>
+								<div class="card-text">
+									<!-- <p class="text-right text-black">Marca: <%= oneProduct.brand_id%></p> -->
+									<% brands.forEach(oneBrand => { %>
+										<% if(oneBrand.id == oneProduct.brand_id){%>
+										<p class="text-left text-black">Marca: <%= oneBrand.name%></p>
+										<% } %>
+									<% }) %>
+								</div>
+								<div class="card-text">
+									<h4 class="text-right text-black">$<%= oneProduct.price %></h4>
+								</div>
+								<div class="card-link text-right">
+									<button class="btn-amarillo" alt="Agregar al carrito">Agregar al carrito</button>
 								</div>
 							</div>
+						</div>
 						<% }); %>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -99,6 +132,7 @@
 		<!-- ↓↓ aca termina el DIV main container ↓↓ -->
 	</div>
 
+	<script src="/js/buscarProductos.js"></script>
 </body>
 
 </html>

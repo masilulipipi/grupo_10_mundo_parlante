@@ -28,6 +28,9 @@ router.get('/', mainController.root);
 /* GET - productos. */
 router.get('/productos', mainController.productos);
 
+/* POST - productos. */
+router.post('/productos', mainController.filter);
+
 /* >>>>>>>>>>>>>>>>> CREAR PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
 /* GET - productos. */
 router.get('/productosAdd', mainController.create);

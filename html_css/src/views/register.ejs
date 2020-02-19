@@ -15,27 +15,33 @@
 				<div class="row">
 					<div class="col-12">
 						<label>Nombre:</label>
-						<input type="text" name="first_name" class="form-control" placeholder="Ej: Ana">
+						<input type="text" name="first_name" class="form-control" placeholder="Ej: Ana" data-name="Nombre">
+						<div class="invalid-feedback"> </div>
 					</div>
 					<div class="col-12">
 						<label>Apellido:</label>
-						<input type="text" name="last_name" class="form-control" placeholder="Ej: Pérez">
+						<input type="text" name="last_name" class="form-control" placeholder="Ej: Pérez" data-name="Apellido">
+						<div class="invalid-feedback"> </div>
 					</div>
 					<div  class="col-12">
 						<label>Email:</label>
-						<input type="email"name="email" class="form-control" placeholder="Ej: email@server.com">
+						<input type="email"name="email" class="form-control" placeholder="Ej: email@server.com" data-name="Email">
+						<div class="invalid-feedback"> </div>
 					</div>
 					<div class="col-12">
 						<label>Contraseña:</label>
-						<input type="password" name="password" class="form-control" placeholder="******">
+						<input type="password" name="password" id="password"class="form-control" placeholder="******" data-name="Contraseña">
+						<div class="invalid-feedback"> </div>
 					</div>
 					<div  class="col-12">
 						<label>Repetir Contraseña:</label>
-						<input type="password" name="rePassword" class="form-control" placeholder="******">
+						<input type="password" name="rePassword" id="repassword" class="form-control" placeholder="******" data-name="Repetir Contraseña">
+						<div class="invalid-feedback" id="repasswordMessage"> </div>
 					</div>
 					<div  class="col-12">
 						<label>Avatar:</label>
-						<input type="file" name="avatar" class="form-control" >
+						<input type="file" name="avatar" class="form-control" data-name="Imagen de perfil">
+						<div class="invalid-feedback"> </div>
 					</div>
 					<div  class="col-12">
 						<label></label>
@@ -48,6 +54,7 @@
 		<%- include('partials/footer') %>
 	<!-- ↓↓ aca termina el DIV main container ↓↓ -->
 	</div>
-	
+	<script defer src="/js/validator.js"></script>
+	<script defer src="/js/validateRegister.js"></script>
 </body>
 </html>

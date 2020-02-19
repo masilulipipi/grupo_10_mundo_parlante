@@ -51,49 +51,71 @@ const controller = {
 		});
 	} */,
 	productos:(req, res) => {
+		let pedidoProduct = db.Products.findAll();
 		
-		db.Products
-			.findAll({
-				include: ['brand', 'user']
-			})
-			.then(products => {
-				return res.render('productos', { products });
-			})
-			.catch(error => console.log(error));
-	},/* 
-	productosAdd:(req, res) => {
+		let pedidoBrand = db.Brands.findAll();
 		
-		res.render('productosAdd',);
-	}, */
-	/* 
-	processProductosAdd: (req, res) => {
-		let productFinalData = {
-			id: generateProductId(),
-			nombre: req.body.name,
-			marca: req.body.brand,
-			modelo: req.body.model,
-            precio: req.body.price,
-			descripcion: req.body.description,
-			Lo que dive ('image') es el name del campo en la vista 
-			image: req.file.filename
-		};
+		   Promise.all([pedidoProduct, pedidoBrand])
+		   	 .then(function([products, brands, brands_selected]){
+				
+				res.render('productos', {products:products, brands:brands, brands_selected:[]});
+            }) 
 		
-		// Guardar el producto
-		storeProduct(productFinalData);
 		
-		// Redirección al login
-		res.redirect('/productos');
-		console.log(productFinalData);
-		
-	}, */
+			.catch(error => console.log(error)); 
+	},
+	filter:(req, res) => {
+		 
+		/* console.log(req.body.marca); */
+		let pedidoProduct
+		if(req.body.marca != undefined){
+			pedidoProduct = db.Products.findAll({
+				where: {
 	
+					brand_id: req.body.marca
+				}
+			});
+			
+		}else{
+			req.body.marca = []
+			pedidoProduct = db.Products.findAll();
+		}
+	/* let pedidoProduct = db.Products.findAll({
+			where: {
+
+				brand_id: req.body.marca
+			}
+		});
+		 */
+	
+	let pedidoBrand = db.Brands.findAll();
+	   Promise.all([pedidoProduct, pedidoBrand])
+			.then(function([products, brands, brands_selected]){
+				
+			
+			res.render('productos', {products:products, brands:brands, brands_selected:Array.from(req.body.marca)});
+			console.log("brands_selected: ");
+			console.log(brands_selected);
+			
+		}) 
+	
+		.catch(error => console.log(error)); 
+
+	},
 	create: (req, res) => {
 		
 		db.Brands
 			.findAll()
 			.then(brands => {
-				return res.render('productosAdd', { brands});
-					})
+			const isLogged = req.session.user ? true : false;
+				if (isLogged){
+					return res.render('productosAdd', { brands});
+						}
+				 else {
+					return res.render('login');
+				}
+			})
+
 			.catch(error => console.log(error));
 			
 	},
