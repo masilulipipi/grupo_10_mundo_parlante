@@ -9,8 +9,11 @@ const controller = {
         /* Busca todos los usuarios en la base de datos */
      db.Users
        .findAll(
+        
            {
-               /* Definiendo estos atributos, la api solo nos trae esos campos */
+               order: [
+                ['id', 'DESC']
+               ],
                attributes: ['first_name', 'last_name', 'email']
            }
        )
@@ -34,6 +37,7 @@ productos:(req, res) => {
     db.Products
        .findAll(
         {
+            order: [ ['id', 'DESC']],
             attributes: ['name', 'price', 'model']
         }
        )

@@ -163,7 +163,13 @@ const controller = {
 	},
 	show:(req, res) => {
 		db.Users
-			.findAll()
+			.findAll(
+				{
+					order: [
+					 ['id', 'DESC']
+					]
+				}
+			)
 			.then(users => {
 				return res.render('listadoUsers', { users });
 			})
