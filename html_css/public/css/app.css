@@ -200,7 +200,7 @@ button{
 /*para ocultar los filtros*/
 @media screen and (max-width: 767px){
 .no-display-sm{
-  display:none;
+ /*  display:none; */
 }
 }
 /* CSS para cuando mide a partir de 768 */

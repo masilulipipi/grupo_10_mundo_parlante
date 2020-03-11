@@ -44,6 +44,9 @@ app.use('/', mainRouter);
 const usersRouter = require('./routes/usersRoutes');
 app.use('/users', usersRouter);
 
+/* LE decimos a APP que use el router de APIs */
+const apiRoutes = require('./routes/apiRoutes');
+app.use('/api', apiRoutes);
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
