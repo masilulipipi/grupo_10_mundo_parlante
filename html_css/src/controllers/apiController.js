@@ -38,14 +38,14 @@ productos:(req, res) => {
        .findAll(
         {
             order: [ ['id', 'DESC']],
-            attributes: ['name', 'price', 'model']
+            attributes: ['name', 'price', 'model', 'description', 'image']
         }
        )
        .then(productos => {
         let result = {  
             metadata: {
                 url: req.originalUrl,
-                quantity: productos.length
+                quantity: productos.length,
             },
             data: productos
         }
