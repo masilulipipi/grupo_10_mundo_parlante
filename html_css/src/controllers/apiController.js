@@ -33,26 +33,33 @@ const controller = {
        .catch(error => console.log(error)); 
 },
 productos:(req, res) => {
-        
-    let totalAmount = ''
-    
-    db.Products
+    /* sumo todos los precios */
+    let totalAmount = db.Products
+       .sum('price');
+       
+    /* Busco todos los productos */
+    let allProducts = db.Products
        .findAll(
         {
             order: [ ['id', 'DESC']],
-            attributes: ['name', 'price', 'model', 'description', 'image'],
+            attributes: ['id','name', 'price', 'model', 'description', 'image'],
         }
-       )
+       );
+   
+       /* aca escribo que queries deben terminar de ejecutarse para que haga el 'then' */
+       Promise.all([totalAmount, allProducts])
        
-       
-       .then(productos => {
-           
+       /* pongo 2 parametros, uno para el AMOUNT q encontro, otro para los PRODUCTOS */
+       .then (function ([amount, products]){
+        
+        /* aca ya defino el resultado que va a mostrar la API */
         let result = {  
             metadata: {
                 url: req.originalUrl,
-                quantity: productos.length,                             
+                quantity: products.length, 
+                amount: amount                            
             },
-            data: productos
+            data: products
         }
            return res.send(result);
        })
