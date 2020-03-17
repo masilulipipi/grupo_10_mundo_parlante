@@ -109,7 +109,7 @@ const controller = {
 						// Redireccionamos al visitante a su perfil
 						res.redirect('/users/profile/'+user[0].id);
 					} else {
-						res.send('Credenciales inválidas');
+						res.send('Credenciales Inválidas');
 					}
 				} else {
 					res.send('No hay usuarios registrados con ese email');

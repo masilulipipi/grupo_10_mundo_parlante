@@ -34,18 +34,23 @@ const controller = {
 },
 productos:(req, res) => {
         
+    let totalAmount = ''
+    
     db.Products
        .findAll(
         {
             order: [ ['id', 'DESC']],
-            attributes: ['name', 'price', 'model', 'description', 'image']
+            attributes: ['name', 'price', 'model', 'description', 'image'],
         }
        )
+       
+       
        .then(productos => {
+           
         let result = {  
             metadata: {
                 url: req.originalUrl,
-                quantity: productos.length,
+                quantity: productos.length,                             
             },
             data: productos
         }

@@ -53,7 +53,9 @@ ul li{
 .font-bebas{
   font-family: 'Bebas Neue', cursive;
 }
-
+label{
+    font-family: 'Abel', sans-serif;
+}
 /* FONTS FAMILY SIZES */
 .f-24{
   font-size: 24px;

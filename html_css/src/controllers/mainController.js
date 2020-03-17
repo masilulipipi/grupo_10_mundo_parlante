@@ -92,11 +92,14 @@ const controller = {
 		/* se mantenga el array q le pido que cree */
 		}else{
 			req.body.marca = []
-			pedidoProduct = db.Products.findAll({
-				order: [
-				 ['id', 'DESC']
-				]
-			});
+			pedidoProduct = db.Products.findAll(/* para ordenar del mas nuevo al mas viejo */
+				/* esto va adentro del findAll( "{aca va el order:[['columna', 'ORDEN']]}") */
+				{
+					order: [
+					 ['id', 'DESC']
+					]
+				}
+			);
 		}
 	let pedidoBrand = db.Brands.findAll();
 

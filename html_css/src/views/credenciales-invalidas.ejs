@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Productos'}) %>
+
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container-fluid" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+		<div class="row justify-content-center my-3 bg-dark">
+			<div class="col-12 titulo-seccion mt-3 justify-content-center d-flex align-items-center" id="about-titulo">
+				<h1>Quienes Somos</h1>
+			</div>
+			<!-- ***PARRAFO Quienes Somos***** 
+			"D-FLEX ALIGN-ITEMS-CENTER es para que el texto se vea en el medio de la celda y no arriba o abajo-->
+			<div class="col-12 col-md-6 text-center" id="about-parrafo">
+				<h2>Credenciales Invalidas
+				</h2>
+				
+			</div>
+		</div>
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+		<!-- ↓↓ aca termina el DIV main container ↓↓ -->
+	</div>
+
+</body>
+
+</html>
