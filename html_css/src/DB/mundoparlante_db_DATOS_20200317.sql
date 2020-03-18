@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2020 a las 23:13:52
+-- Tiempo de generación: 18-03-2020 a las 00:49:08
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -28,16 +28,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `brands`
 --
 
-CREATE TABLE `brands` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `brands`
---
 
 INSERT INTO `brands` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (1, 'Genelec', NULL, NULL),
@@ -55,18 +45,6 @@ INSERT INTO `brands` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 -- Estructura de tabla para la tabla `products`
 --
 
-CREATE TABLE `products` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `price` decimal(8,2) NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no-image.png',
-  `brand_id` int(10) UNSIGNED DEFAULT NULL,
-  `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -84,7 +62,10 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `brand_id`, `model`, `de
 (28, 'Parlanta con Select', '753.00', 'product_avatar_1580842994656.png', 6, 'aWEEW', 'Subir un parlante con select en la marca', 13, NULL, NULL),
 (29, 'Parlante 33', '3456.00', 'product_avatar_1581955717925.png', 3, 'AZ34FSS', 'd', 20, NULL, NULL),
 (30, 'Parlante 33', '3456.00', 'product_avatar_1581955717925.png', 7, 'AZ34FSS', 'd', 18, NULL, NULL),
-(31, 'Parlante 84', '3456.00', 'product_avatar_1581955717925.png', 8, 'AZ34FSS', 'd', 12, NULL, NULL);
+(31, 'Parlante 84', '3456.00', 'product_avatar_1581955717925.png', 8, 'AZ34FSS', 'd', 12, NULL, NULL),
+(32, 'agregando + prod x marca', '45665.00', 'product_avatar_1582133202602.jpg', 8, 'AZ34FS', 'a', 9, NULL, NULL),
+(33, 'Last Product', '234.00', 'product_avatar_1583894820374.png', 8, 'aWEEW', 'sadassdsasdsda', 23, NULL, NULL),
+(36, 'Mini Parlante Verde', '1000.00', 'product_avatar_1584479934386.JPG', 5, 'AS56DF', 'Subo un producto para probar en la API que suma la $$$ y que se siguen mostrando en Orden', 12, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -92,16 +73,6 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `brand_id`, `model`, `de
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no-image.png',
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -126,7 +97,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `avat
 (17, 'Juana', 'La Cubana', 'parecerefrescodecola@mail.com', '$2b$10$L8S1XQAKlQgXnONGk9UNauiTTqKd3ZwrEofRtVih14Ro1qJJz4ZLm', 'user_avatar_1580828804848.PNG', NULL, NULL),
 (18, 'Hanson', 'Hanson', 'pruebasinfoto@mail.com', '$2b$10$Mr.veoWNv9ORf6yqUQRTGuKwaN4JRPOwihK1MJv5wv2KxkjLvLv5K', 'user_avatar_1580831423516.JPG', NULL, NULL),
 (19, 'Nuevo', 'User', 'nuevouser@mail.com', '$2b$10$VVnV9V6mTybj84BPN1IRgOVM3ww1iOGnwhQV1fxVVO4SMQhYDRXF6', 'user_avatar_1580870296015.png', NULL, NULL),
-(20, 'Pepito', 'Williamson', 'pepito@mail.com', '$2b$10$Vl.3CjmDVTnN5CqCOtyHneZS9ppl5EuFugKWx6SUgXnjQMHy.jMUK', 'user_avatar_1581949580580.PNG', NULL, NULL);
+(20, 'Pepito', 'Williamson', 'pepito@mail.com', '$2b$10$Vl.3CjmDVTnN5CqCOtyHneZS9ppl5EuFugKWx6SUgXnjQMHy.jMUK', 'user_avatar_1581949580580.PNG', NULL, NULL),
+(21, 'germi', 'villar ', 'promovi2@gmail.com', '$2b$10$TSAc93mRDrpPGa0mY8Hg3./4r15MTaVBXtCWcPBv1O0fKRPaIErnO', 'user_avatar_1582090438293.jpg', NULL, NULL),
+(22, 'Nuevo', 'Usuario', 'usuario@mail.com', '$2b$10$OxL1/qnHUSK9/qKyTRJ1POoXpbFpH0EZheDk1bvXRVivBs5g8il46', 'user_avatar_1583891515747.gif', NULL, NULL),
+(23, 'Ultimo', 'Usuario', 'ultimo@mail.com', '$2b$10$LdR9D.BFERDzbZwdr3ZKmuhEv.uOLYyEfYUUOUfQylWuuwfH1Ub/m', 'user_avatar_1583894294613.PNG', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -167,13 +141,13 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Restricciones para tablas volcadas
