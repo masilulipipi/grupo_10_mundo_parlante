@@ -10,6 +10,7 @@ const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
 const authMiddleware = require('./middlewares/authMiddleware');
 const guestMiddleware = require('./middlewares/guestMiddleware');
 const authLocals = require('./middlewares/authLocals');
+const originalUrl = require('./middlewares/originalUrl');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -29,6 +30,7 @@ app.use(userCookieMiddleware);
 /* app.use(authMiddleware);
 app.use(guestMiddleware); */
 app.use(authLocals);
+app.use(originalUrl);
 
 
 // ************ Template Engine - (don't touch) ************

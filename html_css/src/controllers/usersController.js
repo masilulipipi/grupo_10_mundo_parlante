@@ -6,37 +6,7 @@ const sequelize = db.sequelize;
 // Constants
 const userFilePath = __dirname + '/../data/users.json';
 
-/* function getAllUsers () {
-	let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
-	let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent); 
-	return finalUsers;
-}
 
-function storeUser (newUserData) {
-	let allUsers = getAllUsers();
-	allUsers.push(newUserData);
-	fs.writeFileSync(userFilePath, JSON.stringify(allUsers, null, ' '));
-}
-
-function generateUserId () {
-	let allUsers = getAllUsers();
-	if (allUsers.length == 0) {
-		return 1;
-	}
-	let lastUser = allUsers.pop();
-	return lastUser.id + 1;
-}
-function getUserByEmail(email) {
-	let allUsers = getAllUsers();
-	let userToFind = allUsers.find(oneUser => oneUser.email == email);
-	return userToFind;
-}
-
-function getUserById(id) {
-	let allUsers = getAllUsers();
-	let userToFind = allUsers.find(oneUser => oneUser.id == id);
-	return userToFind;
-} */
 const controller = {
 	registerForm: (req, res) => {
         
@@ -79,8 +49,9 @@ const controller = {
 		/* let userLogged = db.Users.findByPk(req.session.userId)
 		.then(resultado => {
 			return req.session.user = resultado}); */
-        //res.send('Página de login'); ** ESTO ES PARA COMPROBAR SI ANDA
-        res.render('login');
+		//res.send('Página de login'); ** ESTO ES PARA COMPROBAR SI ANDA
+		res.render('login');
+		
 	},
 	processLogin: (req, res) => {
 		/* const isLogged = req.session.userId ? true : false; */
@@ -107,7 +78,9 @@ const controller = {
 						}		
 						
 						// Redireccionamos al visitante a su perfil
-						res.redirect('/users/profile/'+user[0].id);
+						 res.redirect('/users/profile/'+user[0].id); 	
+						 
+						
 					} else {
 						res.send('Credenciales Inválidas');
 					}
