@@ -82,10 +82,10 @@ const controller = {
 						 
 						
 					} else {
-						res.send('Credenciales Inválidas');
+						res.render('credenciales-invalidas');
 					}
 				} else {
-					res.send('No hay usuarios registrados con ese email');
+					res.render('nouser');
 				} 
             })                 
 	},

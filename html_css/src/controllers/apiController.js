@@ -64,7 +64,37 @@ productos:(req, res) => {
            return res.send(result);
        })
        .catch(error => console.log(error)); 
-}
+    },
+    userId: (req, res) => {
+            
+        /* let userLogged = req.session.user */
+        
+        db.Users
+            .findByPk(req.params.id)
+            .then(function(user){
+                if (user != null){
+                    res.send(user);
+                } else {
+                    res.send("No existe ese usuario")
+                }
+            })
+            .catch(error => res.send(error)); 
+    },
+    productosId: (req, res) => {
+            
+        /* let userLogged = req.session.user */
+        
+        db.Products
+            .findByPk(req.params.id)
+            .then(function(producto){
+                if (producto != null){
+                    res.send(producto);
+                } else{
+                    res.send("No existe ese producto")
+                }
+            })
+            .catch(error => res.send(error)); 
+    }
 
 
 
