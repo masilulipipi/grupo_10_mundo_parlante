@@ -57,6 +57,10 @@ label{
     font-family: 'Abel', sans-serif;
 }
 /* FONTS FAMILY SIZES */
+/* FONT SIZES */
+.f-16{
+  font-size: 16px;
+}
 .f-24{
   font-size: 24px;
 }
@@ -112,10 +116,6 @@ h3{
 }
 .text-amarillo{
   color:#FFF000;
-}
-/* FONT SIZES */
-.f-16{
-  font-size: 16px;
 }
 .mg-top{
   margin-top: 10px;
