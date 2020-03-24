@@ -2,15 +2,12 @@
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const express = require('express');
-const logger = require('morgan');
 const path = require('path');
 const session = require('express-session');
-/* const authLocals = require('./middlewares/authLocals'); */
+
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
-const authMiddleware = require('./middlewares/authMiddleware');
-const guestMiddleware = require('./middlewares/guestMiddleware');
 const authLocals = require('./middlewares/authLocals');
-const originalUrl = require('./middlewares/originalUrl');
+
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -18,7 +15,6 @@ const app = express();
 // ************ Middlewares - (don't touch) ************
 app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
-app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(session({
@@ -27,10 +23,8 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(userCookieMiddleware);
-/* app.use(authMiddleware);
-app.use(guestMiddleware); */
 app.use(authLocals);
-app.use(originalUrl);
+
 
 
 // ************ Template Engine - (don't touch) ************
@@ -49,6 +43,8 @@ app.use('/users', usersRouter);
 /* LE decimos a APP que use el router de APIs */
 const apiRoutes = require('./routes/apiRoutes');
 app.use('/api', apiRoutes);
+
+
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************

@@ -44,19 +44,11 @@ const controller = {
 		.catch(error => console.log(error)); 
 	},
 	loginForm:(req, res) => {
-	
-		/* let userLogged = getUserById(req.session.userId); */
-		/* let userLogged = db.Users.findByPk(req.session.userId)
-		.then(resultado => {
-			return req.session.user = resultado}); */
-		//res.send('Página de login'); ** ESTO ES PARA COMPROBAR SI ANDA
-		res.render('login');
+			res.render('login');
 		
 	},
 	processLogin: (req, res) => {
-		/* const isLogged = req.session.userId ? true : false; */
-		// Buscar usuario por email
-		/* let user = getUserByEmail(req.body.email); */
+	
 		db.Users
 			.findAll({
 				where: {
@@ -85,7 +77,7 @@ const controller = {
 						res.render('credenciales-invalidas');
 					}
 				} else {
-					res.render('nouser');
+					res.render('nouser', {email: req.body.email});
 				} 
             })                 
 	},

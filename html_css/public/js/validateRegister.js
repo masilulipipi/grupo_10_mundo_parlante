@@ -1,10 +1,13 @@
+/* capturamos el formulario */
 const formRegister =  document.querySelector('form'); 
 
-
+/* Hacemos un array con todos los elementos */
 let formCampos = Array.from(formRegister.elements);
 
+/* Borramos el ultimo elemento que es el boton de SUBMIT */
 formCampos.pop();
 
+/* Creamos la variable que guardara los errores */
 let camposConError = {};
 
 // Generic validate function
@@ -15,13 +18,20 @@ function validateInput(message, input, typeOfValidator) {
 
 	let validation;
 	
+	/* definimos los tipos de validacion */
 	switch (typeOfValidator) {
+
+		/* verifica que el mail contenga @ y . */
 		case 'isEmail':
 			validation = !validator[typeOfValidator](valorDelCampo);
-            break;
+			break;
+
+		/* equals es para que compare las cotraseñas */
         case 'equals':
 			validation = !validator[typeOfValidator](valorDelCampo);
-            break;
+			break;
+
+		/* El default para todo lo demas */
        	default:
 			validation = validator[typeOfValidator](valorDelCampo);
 			break;
@@ -68,10 +78,7 @@ for (const unCampo of formCampos) {
     
     if (unCampo.name === 'rePassword') {	
         unCampo.addEventListener('blur', function () {
-            if (!validator.equals(unCampo.value, password.value)) {
-                console.log(password.value);
-                console.log(unCampo.value);
-                
+            if (!validator.equals(unCampo.value, password.value)) {              
                 validateInput('no coincide con el <b>Campo Contraseña</b>', this, 'equals');
             }
         })
@@ -88,8 +95,6 @@ formRegister.addEventListener('submit', function (event) {
 			camposConError[unCampo.name] = true;
 		}
 	}
-
-	console.log(camposConError);	
 
 	if (Object.keys(camposConError).length > 0) {
 		event.preventDefault();

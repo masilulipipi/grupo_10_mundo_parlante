@@ -22,6 +22,8 @@ const upload2 = multer2({ storage: storageDiskProducts });
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
 
+// ************ RUTAS ************
+
 /* GET - home page. */
 router.get('/', mainController.root);
 
@@ -32,14 +34,17 @@ router.get('/productos', mainController.productos);
 router.post('/productos', mainController.filter);
 
 /* >>>>>>>>>>>>>>>>> CREAR PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
+
 /* GET - productos. */
 router.get('/productosAdd', mainController.create);
 
-/* POST - productos add. */ /* Lo que dive ('image') es el name del campo en la vista */
+/* POST - productos add. */ /* Lo que dice ('image') es el name del campo en la vista */
 router.post('/productosAdd', upload2.single('image'), mainController.store);
+
 
 /* >>>>>>>>>>>>>>>>> DETALLE PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
 router.get('/productos/detalle/:id', mainController.detalle);
+
 
 /* • • • • • • EDITAR PRODUCTO • • • • • • */
 router.get('/productos/editar/:id', mainController.edit);
