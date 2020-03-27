@@ -19,10 +19,7 @@
 		<div class="row bg-dark">
 			<div class="col-12 col-md-3 offset-md-1 text-left py-3">
 				<h3 class="row text-white pl-2">BÚSQUEDA</h3>
-				<!-- <div class="row  d-flex justify-content-around">
-					<input type="text" placeholder="busca un producto" class="col-9 form-control">
-					<button class="col-2 form-control"><i class="fa fa-search" aria-hidden="true"></i></button>
-				</div> -->
+				
 				<hr class="no-display-sm">
 				<div class="row no-display-sm">
 					<div class="col-12 font-abel">
@@ -34,20 +31,20 @@
 						<form action="/productos" method="POST">
 							<!-- para que las marcas las cree solas -->
 							<% brands.forEach(oneBrand => { %>
-								<!-- el IF a continuacion es para saber que checkboxes estan checked -->
-								<!-- ponemos select en false -->
-								<% let select = false  %>
-								<!-- recorremos el array de brands_selected  -->
-								<% brands_selected.forEach(selectedBrand => { %>
-									<!-- si las brands de brads_selected coinciden con el brand.id cambiamos la variable "select" a true  -->
-									<% if(selectedBrand == oneBrand.id) {select = true} %>
-								<% }) %>
-									<!-- si select esta en true le ponemos 'checked' a ese checkbox y si no, se lo sacamos  -->
-								<% if(select == true) {%>
-									<input type="checkbox" name="marca" checked value="<%= oneBrand.id %>">
-								<%} else {%>
-									<input type="checkbox" name="marca" value="<%= oneBrand.id %>">
-								<% } %>
+									<!-- el IF a continuacion es para saber que checkboxes estan checked -->
+									<!-- ponemos select en false -->
+									<% let select = false  %>
+									<!-- recorremos el array de brands_selected  -->
+									<% brands_selected.forEach(selectedBrand => { %>
+										<!-- si las brands de brads_selected coinciden con el brand.id cambiamos la variable "select" a true  -->
+										<% if(selectedBrand == oneBrand.id) {select = true} %>
+									<% }) %>
+										<!-- si select esta en true le ponemos 'checked' a ese checkbox y si no, se lo sacamos  -->
+									<% if(select == true) {%>
+										<input type="checkbox" name="marca" checked value="<%= oneBrand.id %>">
+									<%} else {%>
+										<input type="checkbox" name="marca" value="<%= oneBrand.id %>">
+									<% } %>
 								<label for="marca"><%= oneBrand.name %></label>
 								<br>
 							<% }) %>
@@ -55,24 +52,8 @@
 						</form>
 					</div>
 				</div>
-				<hr class="no-display-sm">
-				<div class="row no-display-sm">
-					<!-- <div class="col-12 font-abel">
-						<h4>Filtrar por Modelo</h4>
-					</div>
-					<div class="col-12 font-abel">
-						<input type="checkbox" name="modelo" value="modelo1">
-						<label for="modelo">Profesionales</label>
-						<br>
-						<input type="checkbox" name="modelo" value="modelo2">
-						<label for="modelo">Amateurs</label><br>
-						<input type="checkbox" name="modelo" value="modelo3">
-						<label for="modelo">Estudio</label><br>
-						<input type="checkbox" name="modelo" value="modelo4">
-						<label for="modelo">Compactos</label><br>
-						<input type="checkbox" name="modelo" value="modelo5">
-						<label for="modelo">Sets</label><br>
-					</div> -->
+					<hr class="no-display-sm">
+					<div class="row no-display-sm">
 				</div>
 			</div>
 			<div class="col-12 col-md-7 text-left py-3">
@@ -94,7 +75,8 @@
 				</div>
 				<div class="row mt-1">
 					<div class="col-12 card-columns">
-						<!-- con este fo busca todos los productos -->
+
+						<!-- este forEach recorre todos los productos -->
 						<% products.forEach(oneProduct => { %>
 						<div class="card bg-wh">
 							<div class="car-img-top"></div>

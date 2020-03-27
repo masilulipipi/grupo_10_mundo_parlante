@@ -2,6 +2,7 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const db = require('../database/models');
 const sequelize = db.sequelize;
+let { check, validationResult, body } = require('express-validator');
 
 // Constants
 const userFilePath = __dirname + '/../data/users.json';
@@ -9,39 +10,55 @@ const userFilePath = __dirname + '/../data/users.json';
 
 const controller = {
 	registerForm: (req, res) => {
-        
-            res.render('register',);
+		
+			res.render('register');
+			
+			
 	},
 	store: (req, res) => {
-		/* let userFinalData = {
-			id: generateUserId(),
-			name: req.body.first_name,
-			lastname: req.body.last_name,
-			email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-			bio:req.body.bio,
-			avatar: req.file.filename
-		};
-		
-		// Guardar al usario
-		storeUser(userFinalData);
-		
-		// Redirección al login
-		res.redirect('/users/login');
-		console.log(userFinalData); */
-		db.Users
-		.create({
-			first_name: req.body.first_name,
-			last_name: req.body.last_name,
-			email: req.body.email,
-			password: bcrypt.hashSync(req.body.password, 10),				
-			avatar: req.file.filename,
-		})
-		.then(userSaved => {
+		let errors = (validationResult(req));
+			console.log(errors);
 			
-			res.redirect('/users/login');
-		})
-		.catch(error => console.log(error)); 
+		if (errors.isEmpty()) {
+
+
+				const userData = {
+					first_name: req.body.first_name,
+					last_name: req.body.last_name,
+					email: req.body.email,
+					password: req.body.password,				
+					avatar: req.file.filename,
+				}
+				console.log(userData)
+
+				db.Users.findOne({
+					where: {
+						email: req.body.email
+					}
+				})
+				//aca convierto la contraseña en cifrado
+				.then(users => {
+					
+					/* si no me encuentra al usuario */
+					if (!users) {
+						bcrypt.hash(req.body.password, 10, (err, hash) => {
+							userData.password = hash
+						db.Users
+						.create(userData)
+						.then(users => {
+							
+							res.render('login');
+						})
+						.catch(error => console.log(error));
+						})
+					}else{
+						res.render('register', {users})
+					}
+				})
+		
+	} else {
+			res.render('register', {errors: errors.errors})
+		}
 	},
 	loginForm:(req, res) => {
 			res.render('login');
@@ -62,8 +79,6 @@ const controller = {
 						delete user[0].password;
 						//guarda en sesion el usuario
 						req.session.user = user[0];
-						//hace disponible el usuario a las vistas
-						/* res.locals.user = req.session.user; */
 						// Setear la cookie
 						if (req.body.remember_user) {
 							res.cookie('userIdCookie', user[0].id, { maxAge: 60000 * 60 });
@@ -77,7 +92,7 @@ const controller = {
 						res.render('credenciales-invalidas');
 					}
 				} else {
-					res.render('nouser', {email: req.body.email});
+					res.render('nouser', {email: req.body.email}	);
 				} 
             })                 
 	},
@@ -136,10 +151,18 @@ const controller = {
 				}
 			)
 			.then(users => {
-				return res.render('listadoUsers', { users });
+				return res.render('listado', { users });
 			})
 			.catch(error => console.log(error));
-	}
+	},
+	borrarUser: function(req,res){
+        db.Users.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+        res.redirect('/users/listado')
+    }
 }
 
 module.exports = controller

@@ -96,9 +96,6 @@ const controller = {
 	},
 	store: (req, res) => {
 		
-		 //return res.send(req.body);
-		// req.body.user_id = req.session.user.id;
-		/* req.body.user_id = req.session.user.id;*/
 		db.Products
 			.create({
 				name: req.body.name,
@@ -110,15 +107,7 @@ const controller = {
 				user_id: req.session.user.id,				
 			})
 			.then(productSaved => {
-				// let categories = req.body.categories;
-				// for (const oneCategory of categories) {
-				// 	// Guardar en la tabla pivot
-				// 	db.CategoriesProducts
-				// 		.create({
-				// 			product_id: productSaved.id,
-				// 			category_id: oneCategory
-				// 		})
-				// }
+				
 				res.redirect('productos');
 			})
 			.catch(error => console.log(error)); 
@@ -157,15 +146,7 @@ const controller = {
             }
 		})
 		.then(productSaved => {
-			// let categories = req.body.categories;
-			// for (const oneCategory of categories) {
-			// 	// Guardar en la tabla pivot
-			// 	db.CategoriesProducts
-			// 		.create({
-			// 			product_id: productSaved.id,
-			// 			category_id: oneCategory
-			// 		})
-			// }
+		
 			res.redirect('/productos/detalle/'+req.params.id)
 		})
 		.catch(error => console.log(error));

@@ -23,7 +23,12 @@
                                 <li class="text-amarillo"><%= oneUser.id %> : <%= oneUser.email %></li>
                                 <ul>
                                    <a href="/users/profile/<%= oneUser.id %>"> <li>Nombre completo: <%= oneUser.first_name %> <%= oneUser.last_name %></li></a>
-                                </ul>
+								</ul>
+								<div class="col-12 col-md-4">
+									<form action="/users/borrar/<%=oneUser.id%>" method="POST">
+										<button class="btn btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i> Borrar Usuario</button>
+									</form>
+								</div>
                         </ul>
                         <hr>
                         <% }); %>

@@ -7,10 +7,43 @@
 	<div class="container-fluid" id="main-container">
 		<!-- Header -->
 		<%- include('partials/header') %>
-	
-			<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
-			<div class="row titulo-seccion justify-content-center"><h1>Registrate</h1></div>
-			<div class="form-group justify-content-center">
+
+
+		
+		
+		<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
+		<div class="row titulo-seccion justify-content-center"><h1>Registrate</h1></div>
+		<div class="form-group justify-content-center">
+
+			<!-- DIV para mostrar el error de que errores hay en los campos -->
+			<div class="row mb-2">
+				<div class="col-12 pl-3">
+					<% if (typeof errors != 'undefined') { %>
+						<div>
+							<p style="color: red">Errores:</p>
+							
+								<% for (let i = 0; i < errors.length; i++)  { %>
+									
+									<li class="font-abel f-16" style="color: red"> <%= errors[i].msg %> </li>
+								
+								<% } %>
+							
+						</div>
+					<% } %>
+				</div>
+			</div>
+
+			<!-- DIV para mostrar el error de que el mail se repite -->
+			<div class="row mb-2">
+				<div class="col-12 pl-3">
+					<% if (typeof users != 'undefined') { %>
+						<div>						
+							<li class="font-abel f-16" style="color: red">Ya existe un usuario registrado con el mail: <%= users.dataValues.email %> </li>
+						</div>
+					<% } %>
+				</div>
+			</div>
+
 			<form action="/users/register" method="POST" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-12">
