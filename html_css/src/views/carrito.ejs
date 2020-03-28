@@ -14,6 +14,16 @@
 		</div>
 	<div class="row">
 		<div class="col-12">
+			<% if(products.length < 1){ %>
+				
+						</tbody>
+					</table>
+					<div class="text-center f-18">
+						<h4>Esta vacio!!!</h4>
+						<div><img class="bg-ye mb-2"src="../../images/empty-cart.png" alt="" width="450px" style="border-radius: 300px;"></div>
+						<button class="center text-center btn-amarillo mt-2 form-control-sm" width="300px"><a href="/productos" class="f-18 text-black">Agregale algun producto!</a></button>
+					</div>
+			<% } else { %> 
 		<table class="table table-striped table-dark">
 			<thead>
 				<tr>
@@ -27,15 +37,6 @@
 				</tr>
 			</thead>
 			<tbody>
-			<% if(products.length < 1){ %>
-				
-						</tbody>
-					</table>
-					<div class="text-center f-18">
-						<p>Tu carrito esta vacio</p>
-						<button class="center text-center btn-amarillo mt-2 form-control-sm" width="300px"><a href="/productos" class="f-18 text-black">Agregale algun producto!</a></button>
-					</div>
-			<% } else { %> 
 				<% products.forEach (oneProduct => { %>
 				<tr>
 					<td><img src="../../images/productos/<%= oneProduct.image %>" width="100px" class="img-thumbnail">
