@@ -39,6 +39,22 @@
                     </div>
                 </div>
                 <hr>
+            <% } else {%>
+                
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <form action="/users/login">
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i> Borrar Producto</button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <form action="/users/login">
+                            <button class="btn btn-success" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Editar Producto</button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+
             <% } %>
                     <div class="row mt-2 pl-3">
                         <a href="/productos" class="font-abel">◄ Volver a productos</a>

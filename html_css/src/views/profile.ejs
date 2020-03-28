@@ -15,7 +15,8 @@
             </div>
             <div class="col-12 col-md-6 py-1 text-center text-md-left">
                 <h3 class="text-amarillo">Welcome: <%= `${user.first_name} ${user.last_name}` %></h3>
-                <span class="font-abel">Tu email es: <a href="mailto:<%= user.email %>" class="mail"><%= user.email %></a></span>
+                <p class="font-abel">Tu email es: <a href="mailto:<%= user.email %>" class="mail"><%= user.email %></a></p>
+                <p class="font-abel">Tipo de usuario: <%= user.role %></p>
                 <hr>
                 <a href="" class="mr-2 font-abel"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Ver tu carrito</a>
                 <a href="/users/editarUser/<%= user.id %>" class="mr-2 font-abel"><i class="fa fa-user pr-2" aria-hidden="true"></i>Editar Perfil</a>

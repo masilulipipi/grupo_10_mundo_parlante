@@ -8,7 +8,7 @@
                     <li class="nav-item"><a class="nav-link f-24 font-bebas f-md-16 active" href="/productos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link f-24 font-bebas f-md-16 active" href="/quienes-somos">Quienes Somos</a></li>
 					<li class="nav-item"><a class="nav-link f-24 font-bebas f-md-16 active" href="/contacto">Contacto</a></li>
-					<li class="nav-item "><a class="nav-link f-24 font-bebas f-md-16 active" href="/carrito"><i class="fa fa-shopping-cart " aria-hidden="true"></i> <span class="badge ml-1 mt-0 badge-warning font-abel f-12"><%= cartQty %></span></a></li>
+					<li class="nav-item "><a class="nav-link f-24 font-bebas f-md-16 active" href="/carrito"><i class="fa fa-shopping-cart " aria-hidden="true"></i> <span class="badge ml-1 mt-0 bg-ye text-black font-abel f-12"><%= cartQty %></span></a></li>
                 </ul>
 		</div>
 		<div class="col-12 col-md-3 align-self-center">
@@ -24,6 +24,10 @@
 				<div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
 					<a class="dropdown-item font-abel" href="/users/profile/<%= user.id %>">My profile</a>
 					<div class="dropdown-divider"></div>
+						<% if (userRole == 'admin' ) { %>
+							<a class="dropdown-item font-abel" href="/users/listado">Listado de Usuarios</a>
+							<div class="dropdown-divider"></div>
+						<% } %> 
 					<a class="dropdown-item font-abel" href="/users/logout">Logout</a>
 				</div>
 			</li>

@@ -22,7 +22,8 @@
                         <ul>
                                 <li class="text-amarillo"><%= oneUser.id %> : <%= oneUser.email %></li>
                                 <ul>
-                                   <a href="/users/profile/<%= oneUser.id %>"> <li>Nombre completo: <%= oneUser.first_name %> <%= oneUser.last_name %></li></a>
+								   <a href="/users/profile/<%= oneUser.id %>"> <li>Nombre completo: <%= oneUser.first_name %> <%= oneUser.last_name %></li></a>
+								   <li>Rol:<%= oneUser.role %></li>
 								</ul>
 								<div class="col-12 col-md-4">
 									<form action="/users/borrar/<%=oneUser.id%>" method="POST">

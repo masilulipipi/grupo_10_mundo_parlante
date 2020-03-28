@@ -19,6 +19,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         avatar: {
 			type: dataTypes.STRING
+		},
+        role: {
+			type: dataTypes.STRING
 		}
     }, 
     {
