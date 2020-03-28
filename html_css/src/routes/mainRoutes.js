@@ -4,6 +4,7 @@ const router = express.Router();
 const multer2 = require('multer');
 const path = require('path');
 
+
 //para guardar los datos en productos.json***
 const storageDiskProducts = multer2.diskStorage({
 	destination: (req, file, cb) => {
@@ -53,8 +54,15 @@ router.post('/productos/editar/:id', upload2.single('image'), mainController.upd
 /* >>>>>>>>>>>>>>>>> BORRAR PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
 router.post ('/borrar/:id', mainController.borrar);
 
+
+/* >>>>>>>>>>>>>>>>> CARRITO <<<<<<<<<<<<<<<<<<<<< */
 /* GET - carrito. */
 router.get('/carrito', mainController.carrito);
+/* POST - carrito. */
+router.post('/carrito', mainController.addToCart);
+
+/* POST - Borrar carrito. */
+router.post('/pepinito', mainController.borrarCart);
 
 /* GET - contacto. */
 router.get('/contacto', mainController.contacto);

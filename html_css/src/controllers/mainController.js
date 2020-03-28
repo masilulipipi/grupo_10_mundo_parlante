@@ -95,22 +95,22 @@ const controller = {
 			
 	},
 	store: (req, res) => {
-		
-		db.Products
-			.create({
-				name: req.body.name,
-				price: req.body.price,
-				image: req.file.filename,
-				brand_id: req.body.brand_id,
-				model: req.body.model,
-				description: req.body.description,
-				user_id: req.session.user.id,				
-			})
-			.then(productSaved => {
-				
-				res.redirect('productos');
-			})
-			.catch(error => console.log(error)); 
+	
+			db.Products
+				.create({
+					name: req.body.name,
+					price: req.body.price,
+					image: req.file.filename,
+					brand_id: req.body.brand_id,
+					model: req.body.model,
+					description: req.body.description,
+					user_id: req.session.user.id,				
+				})
+				.then(productSaved => {
+					
+					res.redirect('productos');
+				})
+				.catch(error => console.log(error)); 
 	},
 	edit: function(req, res){
         let pedidoProduct = db.Products.findByPk(req.params.id);
@@ -154,7 +154,55 @@ const controller = {
     },
 
 	carrito:(req, res) => {
-		res.render('carrito');
+		console.log(req.session.cart);
+		
+		
+		db.Products.findAll({
+			where:{
+				id: req.session.cart
+			}
+		})
+		.then(products =>{
+
+			res.render('carrito', {products});
+			console.log("$$$$$$$$$-------products-------$$$$$$$");
+			
+			console.log(products)
+		})
+		.catch(error => console.log(error));
+		
+	},
+	addToCart:(req, res) => {
+
+		let cart = req.session.cart;
+
+		if (!cart.includes(req.body.product)){
+
+			req.session.cart.push(req.body.product);
+		} else{
+			res.send('Ya agregaste este producto');
+		}
+		console.log(req.session.cart);
+		res.redirect('productos');
+	},
+	borrarCart: function(req, res)  {
+		let cart = req.session.cart
+
+		console.log(" - - - CART - - - - -");
+		console.log(cart);
+		console.log(" - - -  -PRODUCT_ID - - - -");
+		console.log(req.body.product_id);
+		
+		var pos = cart.indexOf(req.body.product_id)
+
+		console.log(" - - -  -POS - - - -");
+		console.log(pos);
+
+		cart.splice(pos,1);
+		console.log(" - - - CART 2- - - - -");
+		console.log(cart);
+
+		res.redirect("carrito")
 	},
 	contacto:(req, res) => {
 		
