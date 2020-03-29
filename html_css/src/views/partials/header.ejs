@@ -17,7 +17,7 @@
 			<% if (isAuthenticated == true ) { %>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
+					aria-haspopup="true"  aria-expanded="false">
 					<img src="/images/avatars/<%= user.avatar %>" width="40" style="border-radius: 100%;">
 					<span class="f-12">Hi <%= user.first_name %></span>
 				</a>
@@ -26,6 +26,8 @@
 					<div class="dropdown-divider"></div>
 						<% if (userRole == 'admin' ) { %>
 							<a class="dropdown-item font-abel" href="/users/listado">Listado de Usuarios</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item font-abel" href="http://localhost:4000">Dashboard</a>
 							<div class="dropdown-divider"></div>
 						<% } %> 
 					<a class="dropdown-item font-abel" href="/users/logout">Logout</a>

@@ -23,6 +23,7 @@ html, body {
   background-color: #000;
   box-sizing: border-box;
 }
+
 .bg-wh{
   background-color: #fff;
 }
@@ -133,10 +134,17 @@ h3{
   margin-right: 10px;
 }
 .container-fluid{
+ 
   background: #000;
   color: #ffffff;
+ 
   
   /*border: solid 1px blue; */
+}
+.img-contacto{
+  position: absolute;
+  left:0;
+  bottom:0;
 }
 .row{
   padding:0;
@@ -163,7 +171,6 @@ h3{
   background-color: #fff;
   color:#000;
   font-family: 'Abel', sans-serif;
-  bottom:0;
 }
 .footer a{
   color:#000;

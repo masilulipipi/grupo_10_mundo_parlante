@@ -29,6 +29,7 @@ const controller = {
 					password: req.body.password,				
 					avatar: req.file.filename,
 				}
+				console.log(" - - - - - - - - - user data - - - - - - - - - - - - -")
 				console.log(userData)
 
 				db.Users.findOne({
@@ -73,7 +74,9 @@ const controller = {
 				}
 			}) 
 			.then(function(user){
+								
 				if (user[0] != undefined) {
+					
 					// Al ya tener al usuario, comparamos las contraseñas
 					if (bcrypt.compareSync(req.body.password, user[0].password)) {
 						delete user[0].password;
