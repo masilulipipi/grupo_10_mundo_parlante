@@ -180,7 +180,7 @@ const controller = {
 
 			req.session.cart.push(req.body.product);
 		} else{
-			res.send('Ya agregaste este producto');
+			res.render('productoEnCarrito');
 		}
 		console.log(req.session.cart);
 		res.redirect('productos');

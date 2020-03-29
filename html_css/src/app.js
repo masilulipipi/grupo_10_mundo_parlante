@@ -8,6 +8,7 @@ const session = require('express-session');
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
 const authLocals = require('./middlewares/authLocals');
 const cartMiddleware = require('./middlewares/cartMiddleware');
+const prevPageMiddleware = require('./middlewares/prevPageMiddleware');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -25,6 +26,7 @@ app.use(session({
 app.use(userCookieMiddleware);
 app.use(authLocals);
 app.use(cartMiddleware);
+app.use(prevPageMiddleware);
 
 
 

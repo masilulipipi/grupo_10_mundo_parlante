@@ -87,9 +87,33 @@ const controller = {
 							res.cookie('userIdCookie', user[0].id, { maxAge: 60000 * 60 });
 						}		
 						
+						//si el mdw previous tiene product, lo suma al carrito
+						if (res.locals.previousPage.includes('/productos')){
+
+							//aca buscamos la pos del array en donde esta la url con el id del prod.
+							let lastUrl = res.locals.previousPage.length - 2
+							console.log("posicion URL",lastUrl);
+							
+							//guardamos esa url en una variable para q sea un string
+							let strUrl = res.locals.previousPage[lastUrl]
+							console.log("string URL", strUrl);
+
+							//armo una nueva variable que va a contener solo los 2 ultimos digitos del string
+							let prodId = strUrl.slice((strUrl.length - 2), strUrl.length);
+							console.log("string SLICE", prodId);
+
+							//le paso el id del prodcuto al carrito
+							req.session.cart.push(prodId);
+							console.log(req.session.cart);
+
+							// Redireccionamos al carrito para q vea su producto
+							res.redirect('/carrito'); 	
+							
+						}
+
 						// Redireccionamos al visitante a su perfil
 						 res.redirect('/users/profile/'+user[0].id); 	
-						 
+						//}
 						
 					} else {
 						res.render('credenciales-invalidas');
