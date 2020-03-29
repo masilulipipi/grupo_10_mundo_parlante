@@ -179,11 +179,26 @@ const controller = {
 		if (!cart.includes(req.body.product)){
 
 			req.session.cart.push(req.body.product);
+
 		} else{
+
 			res.render('productoEnCarrito');
 		}
 		console.log(req.session.cart);
 		res.redirect('productos');
+	},
+	addToCartGuest:(req, res) => {
+
+		let cart = req.session.cart;
+			
+			cart.push(req.body.product);
+			console.log("--------- producto Add to cart Guest---------");
+			console.log(cart);
+			
+
+			
+			res.redirect('users/login');
+		
 	},
 	borrarCart: function(req, res)  {
 		let cart = req.session.cart

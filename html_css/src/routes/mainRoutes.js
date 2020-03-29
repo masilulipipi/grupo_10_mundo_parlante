@@ -61,6 +61,8 @@ router.get('/carrito', mainController.carrito);
 /* POST - carrito. */
 router.post('/carrito', mainController.addToCart);
 
+router.post('/addToCartGuest', mainController.addToCartGuest);
+
 /* POST - Borrar carrito. */
 router.post('/pepinito', mainController.borrarCart);
 

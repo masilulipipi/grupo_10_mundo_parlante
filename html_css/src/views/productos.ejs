@@ -113,7 +113,7 @@
 
 										</form>
 									<% } else { %> 
-										<form action="/users/login">
+										<form action="/addToCartGuest" method="POST">
 
 											<input type="hidden" name="product" value="<%= oneProduct.id%>">
 											<button type="submit" class="btn-amarillo" alt="Agregar al carrito">Agregar al carrito</button>
