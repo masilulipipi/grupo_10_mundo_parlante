@@ -137,19 +137,21 @@ const controller = {
             })  
 	},
 	update: function(req,res){
-
+	
+console.log("req.body.avatar");
+	
 		    db.Users.update({
-			first_name: req.body.first_name,
-			last_name: req.body.last_name,
-			email: req.body.email,
-			password: req.body.password,
-			/* avatar: req.file.filename */
+				first_name: req.body.first_name,
+				last_name: req.body.last_name,
+				email: req.body.email,
+				password: req.body.password,
+				/*  avatar: req.file.filename,  */
         },{
             where: {
                 id: req.params.id
             }
         }).then(userUpdated => {
-			
+						
 			res.redirect('/users/profile/'+req.params.id)
 		})
 		.catch(error => console.log(error));
@@ -182,6 +184,24 @@ const controller = {
             }
         })
         res.redirect('/users/listado')
+    },
+	changeRole: function(req,res){
+        db.Users.update({ 
+			/* first_name: req.body.first_name,
+			last_name: req.body.last_name,
+			email: req.body.email,
+			password: req.body.password, */
+			/* avatar: req.file.filename */
+			role: req.body.role
+        },{
+            where:{
+                id: req.params.id
+            }
+        }).then(userUpdated => {
+			
+			res.redirect('/users/listado')
+		}) 
+       
     }
 }
 

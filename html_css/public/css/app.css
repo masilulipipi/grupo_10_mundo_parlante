@@ -220,7 +220,7 @@ button{
 /*para ocultar los filtros*/
 @media screen and (max-width: 767px){
 .no-display-sm{
- /*  display:none; */
+ /*  display:none;  */
 }
 }
 /* CSS para cuando mide a partir de 768 */
@@ -279,6 +279,9 @@ button{
   }
   .card-columns{
     column-count: 3;
+  }
+  .card-columns-users{
+    column-count: 4;
   }
   .vh-100{
     height:100vh;

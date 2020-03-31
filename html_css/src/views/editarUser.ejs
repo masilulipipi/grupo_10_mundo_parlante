@@ -7,7 +7,10 @@
 	<div class="container-fluid" id="main-container">
 		<!-- Header -->
 		<%- include('partials/header') %>
+
+		
 	
+		
 			<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
 			<div class="row titulo-seccion justify-content-center"><h1>Editar Información</h1></div>
 			<div class="form-group justify-content-center">
@@ -34,10 +37,11 @@
 						<input type="password" name="rePassword" value="<%= user.password %>" class="form-control" placeholder="ingresa tu nueva clave otra vez">
 					</div>
 					<div  class="col-12">
-                        <label>Imagen Actual:</label>
-                        <input type="text" readonly name="avatar" value="<%= user.avatar %>" placeholder="NO la trae bart" class="form-control mt-1">
-						<!-- <label>Subir Imagen nueva</label>
-						<input type="file" name="avatar"  class="form-control" placeholder="elegi una foto de tu compu"> -->
+                        
+						
+                        <input type="hidden" readonly name="current_avatar" value="<%= user.avatar %>">
+						 <label>Subir Imagen nueva</label>
+						<input type="file" id="avatar" name="avatar"  class="form-control" placeholder="elegi una foto de tu compu"> 
 					</div>
 					<div  class="col-12">
 						<label></label>
@@ -46,6 +50,8 @@
 				</div>
 			</form>
 		</div>
+
+	
 		<!-- Footer -->
 		<%- include('partials/footer') %>
 	<!-- ↓↓ aca termina el DIV main container ↓↓ -->

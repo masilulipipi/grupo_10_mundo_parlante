@@ -7,7 +7,7 @@ if(res.locals.isAuthenticated == false){
     if (!req.session.previousPage){
         /* creamos el array vacio para guardar los productos */
         req.session.previousPage = [];
-    console.log("------------------ CREE EL ARRAY DE PREVIOUS PAGE ---------------------");
+    
         }
         
         if(req.originalUrl == '/productos/js/popper.js'){
@@ -22,8 +22,7 @@ if(res.locals.isAuthenticated == false){
             req.session.previousPage = req.session.previousPage
         } else {
             req.session.previousPage.push(req.originalUrl)
-            console.log("-------------------GUARDE LA URL----------------------");
-            console.log(req.session.previousPage);
+           
         }
         
         res.locals.previousPage = req.session.previousPage

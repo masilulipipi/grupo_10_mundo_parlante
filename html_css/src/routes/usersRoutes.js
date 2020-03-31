@@ -46,9 +46,11 @@ router.post('/login', usersController.processLogin);
 router.get('/listado', usersController.show);
 
 
-
 /* >>>>>>>>>>>>>>>>> BORRAR User desde Listado <<<<<<<<<<<<<<<<<<<<< */
 router.post ('/borrar/:id', usersController.borrarUser);
+
+/* >>>>>>>>>>>>>>>>> cambiar ROL de usuario <<<<<<<<<<<<<<<<<<<<< */
+router.post('/changerole/:id', usersController.changeRole);
 
 /* GET - Login. */
 router.get('/profile/:id', usersController.profile);
