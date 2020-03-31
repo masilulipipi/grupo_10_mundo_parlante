@@ -10,16 +10,20 @@
         
         <!-- aca va el contenido ****************************** -->
         <div class="row bg-dark py-3">
+
             <div class="col-12 col-md-2 offset-md-2 py-1 text-center text-md-right">
                 <img src="/images/avatars/<%= user.avatar %>" class="img-thumbnail" width="200">
+                
             </div>
+
             <div class="col-12 col-md-6 py-1 text-center text-md-left">
                 <h3 class="text-amarillo">Welcome: <%= `${user.first_name} ${user.last_name}` %></h3>
                 <p class="font-abel">Tu email es: <a href="mailto:<%= user.email %>" class="mail"><%= user.email %></a></p>
                 <p class="font-abel">Tipo de usuario: <%= user.role %></p>
                 <hr>
                 
-                <a href="/users/editarUser/<%= user.id %>" class="mr-2 font-abel"><i class="fa fa-user pr-2" aria-hidden="true"></i>Editar Perfil</a>
+                <a href="/users/editarUser/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-user pr-2" aria-hidden="true"></i>Editar info del perfil</a>
+                <a href="/users/editarAvatar/<%= user.id %>" class="font-abel"><i class="fa fa-picture-o pr-2" aria-hidden="true"></i> Cambiar foto</a>
                 
             </div>
             <div class="col-12 col-md-2 py-1 text-center text-md-left"></div>

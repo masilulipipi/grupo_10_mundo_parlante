@@ -58,6 +58,9 @@ router.get('/profile/:id', usersController.profile);
 /*  EDITAR */
 router.get('/editarUser/:id', usersController.edit);
 router.post('/editarUser/:id', upload.single('avatar'), usersController.update);
+/* EDITAR AVATAR */
+ router.get('/editarAvatar/:id',  usersController.editarAvatar);
+ router.post('/editarAvatar/:id', upload.single('avatar'), usersController.updateAvatar);
 
 /* GET - /users/logout */
 router.get('/logout', usersController.logout);

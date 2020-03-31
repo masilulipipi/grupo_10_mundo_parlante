@@ -155,7 +155,29 @@ console.log("req.body.avatar");
 			res.redirect('/users/profile/'+req.params.id)
 		})
 		.catch(error => console.log(error));
-    },
+	},
+	 editarAvatar:function(req,res){
+		db.Users.findByPk(req.params.id)
+		
+		    .then(function(user){
+				
+                res.render('editarAvatar',{user:user});
+            })
+	} , 
+	updateAvatar:function(req,res){
+		db.Users.update({
+			
+			avatar: req.file.filename
+	},{
+		where: {
+			id: req.params.id
+		}
+	}).then(userUpdated => {
+					
+		res.redirect('/users/profile/'+req.params.id)
+	})
+	.catch(error => console.log(error));
+	} , 
     logout: (req, res) => {
 		// Destruir la session
 		req.session.destroy();
@@ -168,7 +190,7 @@ console.log("req.body.avatar");
 			.findAll(
 				{
 					order: [
-					 ['id', 'DESC']
+					['id', 'DESC']
 					]
 				}
 			)
