@@ -95,8 +95,15 @@ const controller = {
 							
 						} else{
 
+							let lastUrl = res.locals.previousPage.length - 3;
+
+							let strUrl = res.locals.previousPage[lastUrl]
+
+								if (strUrl == '/users/register') {
+									res.redirect("/users/profile/"+user[0].id);
+								}
 							// Redireccionamos al visitante a su perfil
-							res.redirect('/users/profile/'+user[0].id); 	
+							res.redirect("http://localhost:3000"+strUrl); 	
 						}
 						
 					} else {

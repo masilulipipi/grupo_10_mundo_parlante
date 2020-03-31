@@ -13,7 +13,13 @@
 				<li class="nav-item text-center"><a class="nav-link" href="/productos">Productos</a></li>
 				<li class="nav-item text-center"><a class="nav-link" href="/quienes-somos">Quienes Somos</a></li>
 				<li class="nav-item text-center"><a class="nav-link" href="/contacto">Contacto</a></li>
-				<li class="nav-item text-center"><a class="nav-link" href="/carrito"><i class="fa fa-shopping-cart " aria-hidden="true"></i> <span class="badge ml-1 mt-0 bg-ye text-black font-abel f-12"><%= cartQty %></span></a></li>
+
+				<!-- carrito valida q estes logueado -->
+				<% if (isAuthenticated == true ) { %>
+					<li class="nav-item text-center"><a class="nav-link" href="/carrito"><i class="fa fa-shopping-cart " aria-hidden="true"></i> <span class="badge ml-1 mt-0 bg-ye text-black font-abel f-12"><%= cartQty %></span></a></li>
+				<% } else { %>
+					<li class="nav-item text-center"><a class="nav-link" href="/users/login"><i class="fa fa-shopping-cart " aria-hidden="true"></i> <span class="badge ml-1 mt-0 bg-ye text-black font-abel f-12"><%= cartQty %></span></a></li>
+				<% } %>
 			</ul>
 			<ul class="navbar-nav  ml-auto align-items-center">
 				<% if (isAuthenticated == true ) { %>
