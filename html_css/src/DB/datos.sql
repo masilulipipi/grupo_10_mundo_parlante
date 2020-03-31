@@ -24,19 +24,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `brands`
---
 
-CREATE TABLE `brands` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `brands`
 --
 
 INSERT INTO `brands` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
@@ -49,27 +37,6 @@ INSERT INTO `brands` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (7, 'Marca X', NULL, NULL),
 (8, 'Marca Z', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `products`
---
-
-CREATE TABLE `products` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `price` decimal(8,2) NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no-image.png',
-  `brand_id` int(10) UNSIGNED DEFAULT NULL,
-  `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `image`, `brand_id`, `model`, `description`, `user_id`, `createdAt`, `updatedAt`) VALUES
@@ -86,23 +53,6 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `brand_id`, `model`, `de
 (33, 'Parlante Pequeño', '234.00', 'product_avatar_1583894820374.png', 8, 'aWEEW', 'Las descripciones de producto son textos que explican las características y características de los productos. Por regla general, las descripciones de producto se utilizan en las tiendas online con el objetivo de informar a los clientes potenciales y fomentar su intención de compra', 3, NULL, NULL),
 (38, 'Bocina', '123.00', 'product_avatar_1585345294319.jpg', 3, 'AS56DF', 'Las descripciones de producto son textos que explican las características y características de los productos. Por regla general, las descripciones de producto se utilizan en las tiendas online con el objetivo de informar a los clientes potenciales y fomentar su intención de compra', 3, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no-image.png',
-  `role` varchar(45) COLLATE utf8_unicode_ci DEFAULT 'user',
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
