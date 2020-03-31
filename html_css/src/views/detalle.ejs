@@ -25,7 +25,7 @@
                 <p>Descripción: <%= product.description %></p>
                 <hr>
                 
-            <% if (isAuthenticated == true ) { %>    
+            <% if (isAuthenticated == true && userRole == 'admin' ) { %>    
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <form action="/borrar/<%=product.id%>" method="POST">
@@ -39,23 +39,36 @@
                     </div>
                 </div>
                 <hr>
-            <% } else {%>
+            <% } else if (isAuthenticated == true && userRole == 'user' ){%>
                 
                 <div class="row">
-                    <div class="col-12 col-md-4">
-                        <form action="/users/login">
-                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i> Borrar Producto</button>
-                        </form>
-                    </div>
+                  
                     <div class="col-12 col-md-6">
-                        <form action="/users/login">
-                            <button class="btn btn-success" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Editar Producto</button>
+                        <form action="/carrito" method="POST">
+
+                            <input type="hidden" name="product" value="<%= product.id %>">
+                            <button type="submit" class="btn-amarillo" alt="Agregar al carrito">Agregar al carrito</button>
+
                         </form>
                     </div>
                 </div>
                 <hr>
 
-            <% } %>
+            <% } else { %>
+                <div class="row">
+                  
+                    <div class="col-12 col-md-6">
+                        <form action="/addToCartGuest" method="POST">
+
+                            <input type="hidden" name="product" value="<%= product.id %>">
+                            <button type="submit" class="btn-amarillo" alt="Agregar al carrito">Agregar al carrito</button>
+
+                        </form>
+                    </div>
+                </div>
+                <hr>
+
+            <% } %> 
                     <div class="row mt-2 pl-3">
                         <a href="/productos" class="font-abel">◄ Volver a productos</a>
                     </div>

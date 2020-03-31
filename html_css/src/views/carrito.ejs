@@ -30,8 +30,6 @@
 				<tr>
 					<th >Imagen</th>
 					<th >Nombre</th>
-					<th>Marca</th>
-					<th>Modelo</th>
 					<th>Precio</th>
 					<th >Cantidad</th>
 					<th >Eliminar</th>
@@ -40,12 +38,10 @@
 			<tbody>
 				<% products.forEach (oneProduct => { %>
 				<tr>
-					<td><img src="../../images/productos/<%= oneProduct.image %>" width="100px" class="img-thumbnail">
+					<td><a href="/productos/detalle/<%= oneProduct.id  %>"><img src="../../images/productos/<%= oneProduct.image %>" width="100px" class="img-thumbnail"></a>
 					</td>
 					
-					<td><%= oneProduct.name  %></td>
-					<td><%= oneProduct.brand_id  %></td>
-					<td><%= oneProduct.model  %></td>
+					<td><a href="/productos/detalle/<%= oneProduct.id  %>"><%= oneProduct.name  %></a></td>
 					<td><%= oneProduct.price %></td>
 					<td><input type="number" value="1" class="form-control-sm"></td>
 					<td>

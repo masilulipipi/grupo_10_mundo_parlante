@@ -101,7 +101,9 @@ const controller = {
 
 								if (strUrl == '/users/register') {
 									res.redirect("/users/profile/"+user[0].id);
-								}
+								} else if (strUrl == '/users/login') {
+									res.redirect("/users/profile/"+user[0].id);
+								} 
 							// Redireccionamos al visitante a su perfil
 							res.redirect("http://localhost:3000"+strUrl); 	
 						}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+	<!-- ID Main container es el que contiene toooooodo -->
+	<div class="container-fluid" id="main-container">
+		<!-- Header -->
+		<%- include('partials/header') %>
+
+		<!-- "ID= main-content-welcome" es donde va la imagen de bienvenida -->
+		<div class="row align-self-center" id="main-content-welcome">
+			<div class="col-12 p-1"><img src="/images/home_img.PNG" class="welcome-img" alt="welcome to Mundo Parlante"></div>
+		</div>
+		
+		<!-- Footer -->
+		<%- include('partials/footer') %>
+	</div>
+</body>
+</html>

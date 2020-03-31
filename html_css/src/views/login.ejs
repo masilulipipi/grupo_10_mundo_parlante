@@ -8,8 +8,13 @@
 		<!-- Header -->
 		<%- include('partials/header') %>
 	
-			<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
-			<div class="row titulo-seccion justify-content-center"><h1>Logueate</h1></div>
+			<!-- titulo -->
+		<div class="row titulo-seccion justify-content-center"><h1>Logueate</h1></div>
+		
+		
+		<!-- ROW para form e img -->
+		<div class="row justify-content-center">
+			<div class="col-12  col-md-6">
 			<div class="form-group justify-content-center">
 			<form action="/users/login" method="POST">
 				<div class="row">
@@ -31,13 +36,22 @@
 				<hr>
 			<!-- REGISTRATE! -->
 				<div class="row text-center justify-content-center">
-					<div  class="col-12 col-md-4">
+					<div  class="col-12 col-md-6">
 						<p>¿Todavía no tenes una cuenta?</p>
 						<a class="nav-link btn-amarillo text-black rounded f-16" href="/users/register">Registrate</a>
 					</div>
 				</div>
 			</form>
 		</div>
+	</div>
+
+	<!-- columna para IMAGEN -->
+	<div class="col-12 col-md-6">
+
+		<img src="/images/parlante_login.png" class="img-fluid"width="450px" alt="">
+
+	</div>
+</div>
 		<!-- Footer -->
 		<%- include('partials/footer') %>
 	<!-- ↓↓ aca termina el DIV main container ↓↓ -->

@@ -10,9 +10,21 @@ if(res.locals.isAuthenticated == false){
     console.log("------------------ CREE EL ARRAY DE PREVIOUS PAGE ---------------------");
         }
         
-        req.session.previousPage.push(req.originalUrl)
-        console.log("-------------------GUARDE LA URL----------------------");
-        console.log(req.session.previousPage);
+        if(req.originalUrl == '/productos/js/popper.js'){
+            req.session.previousPage = req.session.previousPage
+        } else if (req.originalUrl == '/productos/js/bootstrap.min.js'){
+            req.session.previousPage = req.session.previousPage
+        } else if (req.originalUrl == '/productos/js/jquery.js'){
+            req.session.previousPage = req.session.previousPage
+        } else if (req.originalUrl == '/js/popper.min.js.map'){
+            req.session.previousPage = req.session.previousPage
+        } else if (req.originalUrl == '/js/bootstrap.min.js.map'){
+            req.session.previousPage = req.session.previousPage
+        } else {
+            req.session.previousPage.push(req.originalUrl)
+            console.log("-------------------GUARDE LA URL----------------------");
+            console.log(req.session.previousPage);
+        }
         
         res.locals.previousPage = req.session.previousPage
         console.log("-------------------previousPage en LOCALS!----------------------");
