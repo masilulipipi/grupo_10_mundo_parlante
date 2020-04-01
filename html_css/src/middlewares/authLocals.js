@@ -3,6 +3,8 @@ const locals = (req, res, next) => {
     res.locals.userID = "";
     res.locals.userAvatar ="";
     res.locals.userName = "";
+    res.locals.userRole = "";
+
     console.log(req.session.user);
     
 

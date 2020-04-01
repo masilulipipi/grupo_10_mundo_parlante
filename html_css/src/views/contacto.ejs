@@ -23,33 +23,35 @@
 
 			<!-- Columna FORM -->
 			<div class="col-12 col-md-5 offset-1">
-				<form action="/register" method="POST" enctype="multipart/form-data" class="form-group">
-					<div class="row">
-						<!-- Columna para form de contacto -->
-						<div class="col-12 mt-2">
-							<div class="row">
-								<h4>Envianos un mensaje:</h4>
-							</div>
-							<div class="row">
-								<label>Nombre:</label>
-								<input type="text" name="name" class="form-control mb-1" placeholder="Ej: Ana">
-							</div>
-							<div class="row">
-								<label>Apellido:</label>
-								<input type="text" name="lastname" class="form-control mb-1" placeholder="Ej: Pérez">
-							</div>
-							<div  class="row">
-								<label>Email:</label>
-								<input type="email"name="email" class="form-control mb-1" placeholder="Ej: email@server.com">
-							</div>
-							<div class="row">
-								<label>Mensaje:</label>
-								<textarea type="text" name="mensaje" class="form-control mb-2" placeholder="Ej: Hola, tengo una consulta..."></textarea>
-							</div>
-							<div  class="row">
-								<label></label>
-							<button type="submit" class="btn btn-amarillo btn-block">Enviar</button>
-							</div>
+					<form action="/contacto" method="POST" enctype="multipart/form-data" class="form-group">
+						<div class="row">
+							<!-- Columna para form de contacto -->
+							<div class="col-12 mt-2">
+								<form>
+								<div class="row">
+									<h4>Envianos un mensaje:</h4>
+								</div>
+								<div class="row">
+									<label>Nombre:</label>
+									<input type="text" name="name" class="form-control mb-1" placeholder="Ej: Ana">
+								</div>
+								<div class="row">
+									<label>Apellido:</label>
+									<input type="text" name="lastname" class="form-control mb-1" placeholder="Ej: Pérez">
+								</div>
+								<div  class="row">
+									<label>Email:</label>
+									<input type="email"name="email" class="form-control mb-1" placeholder="Ej: email@server.com">
+								</div>
+								<div class="row">
+									<label>Mensaje:</label>
+									<textarea type="text" name="mensaje" class="form-control mb-2" placeholder="Ej: Hola, tengo una consulta..."></textarea>
+								</div>
+								<div  class="row">
+									<label></label>
+								<button type="submit" class="btn btn-amarillo btn-block">Enviar</button>
+								</div>
+							</form>
 						</div>
 						<!-- Columna de informacion -->
 					</div>

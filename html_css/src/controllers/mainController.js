@@ -223,6 +223,10 @@ const controller = {
 		
 		res.render('contacto');
 	},
+	mensajeEnviado:(req, res) => {
+		
+		res.render('mensajeEnviado');
+	},
 	about:(req, res) => {
 		
 		res.render('quienes-somos',);

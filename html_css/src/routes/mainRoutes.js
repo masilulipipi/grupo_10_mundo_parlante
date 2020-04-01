@@ -69,6 +69,9 @@ router.post('/pepinito', mainController.borrarCart);
 /* GET - contacto. */
 router.get('/contacto', mainController.contacto);
 
+/* POST - contacto. */
+router.post('/contacto', mainController.mensajeEnviado);
+
 /* GET - Quienes Somos. */
 router.get('/quienes-somos', mainController.about);
 

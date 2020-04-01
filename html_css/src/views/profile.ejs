@@ -9,7 +9,7 @@
         <%- include('partials/header') %>
       
 
-        <% if (userID == user.id) { %> 
+        <% if (userID == user.id || userRole == 'admin') { %> 
         <!-- aca va el contenido ****************************** -->
         <div class="row bg-dark py-3">
 
@@ -26,9 +26,11 @@
                 
                 <a href="/users/editarUser/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-user pr-2" aria-hidden="true"></i>Editar info del perfil</a>
                 <a href="/users/editarAvatar/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-picture-o pr-2" aria-hidden="true"></i> Cambiar foto</a>
-
+            
+            <% if(userRole == 'user'){ %> 
                 <a href="/users/logout" class="font-abel"><i class="fa fa-sign-out pr-2" aria-hidden="true"></i> Cerrar Sesión</a>
-                
+            <% } %>
+             
             </div>
             <div class="col-12 col-md-2 py-1 text-center text-md-left"></div>
         </div>
