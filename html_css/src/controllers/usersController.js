@@ -119,14 +119,16 @@ const controller = {
 
 	profile: (req, res) => {
 		
-		/* let userLogged = req.session.user */
-		
 		db.Users
 			.findByPk(req.params.id)
         	.then(function(user){
-                res.render('profile', {user: user});
-            })
-		
+				if(!user){
+					res.render('noprofile')
+				}else{
+				res.render('profile', {user: user})
+				}
+			})
+			.catch(error => console.log(error));
 	},
 	edit: function(req, res){
         db.Users.findByPk(req.params.id)

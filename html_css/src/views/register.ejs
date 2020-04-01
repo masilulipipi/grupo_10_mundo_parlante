@@ -9,7 +9,7 @@
 		<%- include('partials/header') %>
 
 
-		
+		<% if (isAuthenticated == false) {%> 
 		
 		<!-- ACA VAN LAS COSAS DEL FORMULARIO -->
 		<div class="row titulo-seccion justify-content-center"><h1>Registrate</h1></div>
@@ -76,13 +76,30 @@
 						<input type="file" name="avatar" class="form-control" data-name="Imagen de perfil">
 						<div class="invalid-feedback"> </div>
 					</div>
-					<div  class="col-12">
+					<div  class="col-6">
 						<label></label>
 					<button type="submit" class="btn btn-amarillo btn-block" >Registrarse</button>
 					</div>
+					<div class="col-6">
+						<label></label>
+						<button class="btn btn-dark font-abel  btn-block"><a class="" href="/">Cancelar</a></button>
+					</div>
 				</div>
 			</form>
+			
 		</div>
+
+		<% } else { %> 
+			<div class="row d-flex justify-content-center">
+				<div class="col-12">
+					<h3 class="text-center">Ya estas registrado</h3>
+						<p class="text-center">si queres crear una cuenta nueva, primero <a href="/users/logout" class="font-abel" style="text-decoration: underline;">cerrá sesión aqui</a></p>
+				</div>
+				<div class="col-12 text-center">
+					<img src="../../images/parlante_login.png" class="img-fluid " width="350px" alt="">
+				</div>
+			</div>
+		<% } %> 
 		<!-- Footer -->
 		<%- include('partials/footer') %>
 	<!-- ↓↓ aca termina el DIV main container ↓↓ -->

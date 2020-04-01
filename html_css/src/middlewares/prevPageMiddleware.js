@@ -28,6 +28,8 @@ if(res.locals.isAuthenticated == false){
             req.session.previousPage = req.session.previousPage
         } else if (req.originalUrl == '/users/js/jquery.js.map'){
             req.session.previousPage = req.session.previousPage
+        } else if (req.originalUrl == '/users/js/popper.js'){
+            req.session.previousPage = req.session.previousPage
         } else if (req.originalUrl == '/js/jquery.js'){
             req.session.previousPage = req.session.previousPage
         } else if (req.originalUrl == '/js/jquery.js.map'){

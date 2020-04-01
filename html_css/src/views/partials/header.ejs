@@ -26,11 +26,11 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle font-abel f-12" href="#" id="dropUser" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						<img src="/images/avatars/<%= user.avatar %>" width="40" style="border-radius: 100%;">
-						Hi <%= user.first_name %>
+						<img src="/images/avatars/<%= userAvatar %>" width="40" style="border-radius: 100%;">
+						Hi <%= userName %>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
-						<a class="dropdown-item font-abel" href="/users/profile/<%= user.id %>">My profile</a>
+						<a class="dropdown-item font-abel" href="/users/profile/<%= userID %>">My profile</a>
 						<div class="dropdown-divider"></div>
 						<% if (userRole == 'admin' ) { %>
 							<a class="dropdown-item font-abel" href="/users/listado">Listado de Usuarios</a>
