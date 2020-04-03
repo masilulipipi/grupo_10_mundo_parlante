@@ -6,6 +6,7 @@ let formCampos = Array.from(formRegister.elements);
 
 /* Borramos el ultimo elemento que es el boton de SUBMIT */
 formCampos.pop();
+formCampos.pop();
 
 /* Creamos la variable que guardara los errores */
 let camposConError = {};

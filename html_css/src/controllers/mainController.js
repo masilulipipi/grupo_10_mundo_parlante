@@ -25,7 +25,7 @@ const controller = {
 		   Promise.all([pedidoProduct, pedidoBrand])
 		   	 .then(function([products, brands, brands_selected]){
 				
-				res.render('productos', {products:products, brands:brands, brands_selected:[]});
+				res.render('productos', {products:products, brands:brands, brands_selected:[]  });
             }) 
 		
 		

@@ -80,7 +80,7 @@ const controller = {
 					// Al ya tener al usuario, comparamos las contraseñas
 					if (bcrypt.compareSync(req.body.password, user[0].password)) {
 						delete user[0].password;
-						//guarda en sesion el usuario
+						//guarda al usuario en sesion
 						req.session.user = user[0];
 						// Setear la cookie
 						if (req.body.remember_user) {
