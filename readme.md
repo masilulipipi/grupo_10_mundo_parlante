@@ -1,22 +1,23 @@
-<h3>¿Qué producto o servicio brindará nuestro sitio?</h3>
-En nuestra página el cliente encontrará una variedad de parlantes para armar un estudio de grabación de la mas alta calidad, fabricados en función de sus necesidades. 
+<h3>Proyecto Integrador</h3>
+Este es el proyecto final para el curso de Full Stack Node blend en Digital House
 
-<h3>¿Quién sera nuestra audiencia objetivo?</h3>
-Los dueños de estudios e ingenieros de sonido que deban armar o reestructurar un ambiente en donde la escucha precisa sea una prioridad.
+<h3>¿Con qué lo hicimos?</h3>
+El proyecto fue realizado con NodeJS, express, ejs, mySQL y react.
 
-<h3>¿Cómo ajustaremos nuestra oferta a ese público?</h3>
-Nuestra página contendrá las medidas, características y pruebas de audio de cada uno de nuestros productos, permitiendo tomar una decición de cual de ellos es el mas adecuado para cubrir su necesidad.
+<h3>¿De qué se trata?</h3>
+Es un e-commerce de parlantes de alta calidad. Permite el registro e inicio de sesión de usuarios, con diferentes roles. También permite la creación, edición y borrado de los productos para los usuarios con rol de administrador. Solo el administrador puede eliminar usuarios y acceder al dashboard en el que se puede ver un resumen de la cantidad total de productos cargados, usuarios registrados y total en dinero del stock del sitio.
 
-<h3>Sitios Relacionados o similiares.</h3>
+<h3>INSTRUCCIONES</h3>
 
-1- https://www.genelec.com/
+Dentro de la carpeta </b>html_css</b>
 
-2- https://www.adam-audio.com/es/
+1- Crear la base de datos con el archivo: <b>"mundoparlante_db.sql"</b>
 
-3- http://www.krksys.com/
+2- Popular las tablas con el archivo <b>"datos.sql"</b> en el siguiente orden. <b>"users"</b>, <b>"brands"</b> y por último <b>"products"</b>
 
-4- http://atcloudspeakers.co.uk/
+3- npm install y luego npm start. http://localhost:3000
 
-5- https://usa.yamaha.com/
+Dentro de la carpeta </b>html_css/dashboard</b>
 
-6- https://en-de.neumann.com/studio-monitors
+4- Para inicializar el dashboard: npm start. http://localhost:4000
+
