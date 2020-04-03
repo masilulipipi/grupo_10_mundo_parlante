@@ -1,9 +1,0 @@
-El sitio esta dentro de la carpeta HTML_CSS
-Esta separado por las carpetas SRC y PUBLIC
-
-Para cargar, editar o borrar un producto hay que estar logueado
-
-Para ver el listado completo de usuarios
-http://localhost:3000/users/listadoUsers
-
-Se puede usar cualquier email con la contraseña 123
