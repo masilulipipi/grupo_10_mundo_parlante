@@ -1,7 +1,7 @@
 <h3>Proyecto Integrador</h3>
-Este es el proyecto final para el curso de Full Stack Node blend en Digital House
-Video presentación: https://vimeo.com/403415504
-Panel de trabajo en trello: https://trello.com/b/20wMmoXG/grupo10mundoparlante
+<p>Este es el proyecto final para el curso de Full Stack Node blend en Digital House. </p>
+<p>Video presentación: https://vimeo.com/403415504</p>
+<p>Panel de trabajo en trello: https://trello.com/b/20wMmoXG/grupo10mundoparlante</p>
 
 <h3>¿Con qué lo hicimos?</h3>
 El proyecto fue realizado con NodeJS, express, ejs, mySQL y react.
