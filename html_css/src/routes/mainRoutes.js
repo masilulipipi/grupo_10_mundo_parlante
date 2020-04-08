@@ -34,12 +34,12 @@ router.get('/productos', mainController.productos);
 /* POST - productos. */
 router.post('/productos', mainController.filter);
 
-/* >>>>>>>>>>>>>>>>> CREAR PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
+/* • • • • • • •  CREAR PRODUCTO • • • • • • •  */
 
 /* GET - productos. */
 router.get('/productosAdd', mainController.create);
 
-/* POST - productos add. */ /* Lo que dice ('image') es el name del campo en la vista */
+/* POST - productos */
 router.post('/productosAdd', upload2.single('image'), mainController.store);
 
 

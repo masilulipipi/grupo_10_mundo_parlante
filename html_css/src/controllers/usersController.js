@@ -150,7 +150,7 @@ console.log("req.body.avatar");
 				/*  avatar: req.file.filename,  */
         },{
             where: {
-                id: req.params.id
+                id: req.session.user.id
             }
         }).then(userUpdated => {
 						
@@ -172,7 +172,7 @@ console.log("req.body.avatar");
 			avatar: req.file.filename
 	},{
 		where: {
-			id: req.params.id
+			id: req.session.user.id
 		}
 	}).then(userUpdated => {
 					
@@ -202,9 +202,14 @@ console.log("req.body.avatar");
 			.catch(error => console.log(error));
 	},
 	borrarUser: function(req,res){
+		console.log("' ' ' ' ' ' ' ' ' 'REQ.BODY '' ' '' ' ' ' '' ' ' ");
+		
+		console.log(req.body.userid);
+		
+		
         db.Users.destroy({
             where:{
-                id: req.params.id
+                id: req.body.userid
             }
         })
         res.redirect('/users/listado')
@@ -219,7 +224,7 @@ console.log("req.body.avatar");
 			role: req.body.role
         },{
             where:{
-                id: req.params.id
+                id: req.body.userid
             }
         }).then(userUpdated => {
 			

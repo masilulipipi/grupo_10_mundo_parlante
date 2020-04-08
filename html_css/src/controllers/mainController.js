@@ -13,6 +13,7 @@ const controller = {
 
 			/* para ordenar del mas nuevo al mas viejo */
 			/* esto va adentro del findAll( "{aca va el order:[['columna', 'ORDEN']]}") */
+
 			{
 				order: [
 				 ['id', 'DESC']
@@ -25,12 +26,13 @@ const controller = {
 		   Promise.all([pedidoProduct, pedidoBrand])
 		   	 .then(function([products, brands, brands_selected]){
 				
-				res.render('productos', {products:products, brands:brands, brands_selected:[]  });
+				res.render('productos', {products:products, brands:brands, brands_selected:[] });
             }) 
 		
 		
 			.catch(error => console.log(error)); 
 	},
+
 	filter:(req, res) => {
 		 
 		

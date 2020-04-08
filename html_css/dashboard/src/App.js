@@ -14,11 +14,9 @@ function App() {
     <div id="wrapper">
 
 		
-		{/* Aca val el side Menu */}
+		{/* Aca va el side Menu */}
     <SideMenu/>
-		
-
-		
+				
 		<div id="content-wrapper" className="d-flex flex-column">
 
 			
@@ -40,7 +38,7 @@ function App() {
 					<div className="row">
 
 						
-					<BoxInfoProductQty/>
+		  <BoxInfoProductQty/>
           <BoxInfoProductPrice/>
           <BoxInfoUsersQty/>
             

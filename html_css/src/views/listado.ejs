@@ -43,13 +43,14 @@
 						<p class="card-text">Email: <%= oneUser.email %></p>
 						<p class="card-text">ID: <%= oneUser.id %></p>
 						<p class="card-text">Tipo de usuario: <%= oneUser.role %></p>
-						<form action="/users/borrar/<%=oneUser.id%>" method="POST">
+						<form action="/users/borrar/" method="POST">
+							<input type="hidden" name="userid" value="<%= oneUser.id %>">
 							<button class="btn btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i> Borrar Usuario</button>
 						</form>
 						<hr>
-						<form action="/users/changerole/<%=oneUser.id%>" method="POST">
+						<form action="/users/changerole" method="POST">
 							<p>Cambiar Rol:</p>
-
+							<input type="hidden" name="userid" value="<%= oneUser.id %>">
 						<% if(oneUser.role == "user") { %> 
 							<input type="radio" checked id="user" name="role" value="user">
 							<label for="user">User</label><br>
