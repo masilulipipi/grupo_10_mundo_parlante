@@ -201,6 +201,20 @@ console.log("req.body.avatar");
 			})
 			.catch(error => console.log(error));
 	},
+	showTabla:(req, res) => {
+		db.Users
+			.findAll(
+				{
+					order: [
+					['id', 'DESC']
+					]
+				}
+			)
+			.then(users => {
+				return res.render('listado-tabla', { users });
+			})
+			.catch(error => console.log(error));
+	},
 	borrarUser: function(req,res){
 		console.log("' ' ' ' ' ' ' ' ' 'REQ.BODY '' ' '' ' ' ' '' ' ' ");
 		

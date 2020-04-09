@@ -38,6 +38,21 @@ CREATE TABLE `products` (
   FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `comments` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `product_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `comment` varchar(500) NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+ 
+
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- / Populando las tablas
 INSERT INTO `brands` VALUES 
 	(DEFAULT, 'Genelec', NULL, NULL),

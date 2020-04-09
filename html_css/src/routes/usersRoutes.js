@@ -44,6 +44,8 @@ router.post('/login', usersController.processLogin);
 
 /* GET - Listado. */
 router.get('/listado', usersController.show);
+router.get('/listado-tabla', usersController.showTabla);
+
 
 
 /* >>>>>>>>>>>>>>>>> BORRAR User desde Listado <<<<<<<<<<<<<<<<<<<<< */

@@ -205,20 +205,13 @@ const controller = {
 	borrarCart: function(req, res)  {
 		let cart = req.session.cart
 
-		console.log(" - - - CART - - - - -");
-		console.log(cart);
-		console.log(" - - -  -PRODUCT_ID - - - -");
-		console.log(req.body.product_id);
-		
+		//busca la posicion del elemento a borrar
 		var pos = cart.indexOf(req.body.product_id)
-
-		console.log(" - - -  -POS - - - -");
-		console.log(pos);
-
+		
+		//borra desde la posicion encontrada 1 lugar
 		cart.splice(pos,1);
-		console.log(" - - - CART 2- - - - -");
-		console.log(cart);
-
+		
+		//vuelve a cargar el carrito
 		res.redirect("carrito")
 	},
 	contacto:(req, res) => {
@@ -234,14 +227,50 @@ const controller = {
 		res.render('quienes-somos',);
 	},
 	detalle: function (req,res){
-		db.Products
+		let pedidoProduct = db.Products
 			.findByPk(req.params.id, {
             	include: [{association: "brand"}, {association: "user"}] 
-        })
-        	.then(function(product){
-                res.render('detalle', {product: product});
+		})
+		let pedidoComment = db.Comments
+			.findAll({
+				where:{
+					product_id: req.params.id
+				}
+			})
+		Promise.all([pedidoProduct, pedidoComment])
+        	.then(function([product, comment]){
+                res.render('detalle', {product: product, comment:comment});
             })
-    },
+	},
+	crearComentario: (req, res) => {
+	
+		console.log("REQ BODY: " + req.body.username);
+		
+
+		db.Comments
+			.create({
+				product_id: req.body.product_id,
+				user_id: req.session.user.id,
+				name: req.body.name,
+				email: req.body.email,
+				comment: req.body.comment								
+			})
+			.then(commentSaved => {
+				
+				res.redirect('productos/detalle/'+req.body.product_id);
+			})
+			.catch(error => console.log(error)); 
+}, 
+borrarComentario: function(req,res){
+	
+	db.Comments
+	.destroy({
+		where:{
+			id: req.body.commentid
+		}
+	})
+	res.redirect('/productos/detalle/'+req.body.commentproduct_id)
+},
     borrar: function(req,res){
         db.Products.destroy({
             where:{

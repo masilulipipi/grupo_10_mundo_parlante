@@ -34,6 +34,9 @@ router.get('/productos', mainController.productos);
 /* POST - productos. */
 router.post('/productos', mainController.filter);
 
+
+
+
 /* • • • • • • •  CREAR PRODUCTO • • • • • • •  */
 
 /* GET - productos. */
@@ -45,6 +48,12 @@ router.post('/productosAdd', upload2.single('image'), mainController.store);
 
 /* >>>>>>>>>>>>>>>>> DETALLE PRODUCTO <<<<<<<<<<<<<<<<<<<<< */
 router.get('/productos/detalle/:id', mainController.detalle);
+
+/* Comentar producto */
+router.post('/comentar', mainController.crearComentario);
+
+/* Borrar comentario */
+router.post('/borrarcomentario', mainController.borrarComentario);
 
 
 /* • • • • • • EDITAR PRODUCTO • • • • • • */
