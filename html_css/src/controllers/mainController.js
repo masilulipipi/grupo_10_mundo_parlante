@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const moment = require('moment');
 
 
 const controller = {
@@ -235,18 +236,19 @@ const controller = {
 			.findAll({
 				where:{
 					product_id: req.params.id
-				}
+				},
+				order: [
+				['id', 'DESC']
+				]
 			})
 		Promise.all([pedidoProduct, pedidoComment])
         	.then(function([product, comment]){
+				
                 res.render('detalle', {product: product, comment:comment});
             })
 	},
 	crearComentario: (req, res) => {
 	
-		console.log("REQ BODY: " + req.body.username);
-		
-
 		db.Comments
 			.create({
 				product_id: req.body.product_id,
@@ -256,7 +258,7 @@ const controller = {
 				comment: req.body.comment								
 			})
 			.then(commentSaved => {
-				
+								
 				res.redirect('productos/detalle/'+req.body.product_id);
 			})
 			.catch(error => console.log(error)); 
