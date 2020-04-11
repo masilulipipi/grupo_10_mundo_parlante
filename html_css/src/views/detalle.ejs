@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
+
+<script src="../../js/moment.min.js"></script>
 <%- include('partials/head', {title: 'Detalle producto'}) %>
 <body>
+
+    <!-- Plug in comentarios de FB -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=39509041872&autoLogAppEvents=1"></script>
+
+
 	<!-- ID Main container es el que contiene toooooodo -->
 	<div class="container-fluid" id="main-container">
 		<!-- Header -->
@@ -92,32 +100,48 @@
         <!-- Aca empiezan los comentarios -->
 
         <div class="col-12">
-            <div class="row  text-center mt-3">
+            <div class="row text-center mt-3">
+
+            <!-- Comentarios Facebook -->
+          <!--   <div class="col-8 ">
+                <div class="fb-comments" data-href="http://localhost:3000/productos/detalle/%= product.id %>" 	
+                    data-colorscheme="dark" data-width="" data-numposts="5"></div>
+            </div>-->
                 <div class="col-12">
                     <h3>Comentarios sobre este producto</h3>
                 </div>
-            </div>
-            <% if (comment.length > 0) { %> 
-                <% comment.forEach(oneComment => { %>
-                    <div class="row mt-3 ">
-
-                        <div class="col-6 bg-dark  d-flex  align-items-baseline ">
+            </div> 
             
-                            <p class="f-16 "><%= oneComment.name %> | <%= oneComment.email %></p>
+            <!-- Mostrar comentarios -->
+
+            <% if (comment.length > 0) { %> 
+                
+                <% comment.forEach(oneComment => { %>
+                    <div class="row mt-3 px-3  rounded">
+
+                        <div class="col-6 bg-dark p-3 rounded">
+            
+                            <span class=""><img src="../../images/avatars/<%= oneComment.user.avatar %>" width="30px" class="rounded-circle" alt="">  
+                            <%= oneComment.name %> </span>
                         </div>
                         
-                        <div class="col-6 bg-dark text-right p-0">
-                            <!-- aca va la foto -->
+                        <div class="col-6 f-12 p-3 bg-dark rounded text-right p-0">
+                            <!-- aca iria la foto -->
                             
-                            <p class="f-12"><%= oneComment.id %> | <%= oneComment.createdAt %></p>
+                            <!-- <p class="">%= oneComment.id %></p> -->
+                            <%let fecha1 = Date.parse(oneComment.createdAt) %>
+                            <p class="fecha f-12"><%= new Date(oneComment.createdAt) %></p>
+
                         </div>
+
                             <hr class="bg-dark">
                         <div class="col-12 bg-light text-black">
 
-                            <p><%= oneComment.comment %></p>
+                            <p class="mt-2"><%= oneComment.comment %></p>
 
                         </div>
                         
+        <!-- Borrar comentario -->
 
                     <% if (isAuthenticated == true && userRole == "admin") { %> 
                         <form action="/borrarcomentario" method="POST">
@@ -133,6 +157,7 @@
                 <% }) %> 
             <% } else { %>
 
+            <!-- Si no hay comentarios muestra esto  -->
                 <div class="col-12 text-center">
                     <p>Todavia no hay comentarios para este producto! Empezá vos!</p>
                     <br>
@@ -186,5 +211,29 @@
 		<%- include('partials/footer') %>
         <!-- ↓↓ aca termina el DIV main container ↓↓ -->
         </div>
+
+   <script src="../../js/moment.min.js"></script>
+      
+   <script>
+        
+       
+       window.onload = function(){
+           
+        let element = document.getElementsByClassName('fecha');
+        console.log(element);
+        
+            for (let i = 0; i < element.length; i++){
+                //moment(element[i].value).fromNow();
+                let fecha = element[i].childNodes[0].data;
+              //element[i].innerHTML = moment(fecha).format('MMMM Do YYYY, h:mm:ss a')
+              element[i].innerHTML = moment(fecha).fromNow();
+            }
+           
+        }
+
+        </script> 
+
+
+       
 </body>
  </html>

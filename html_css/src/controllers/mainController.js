@@ -234,12 +234,14 @@ const controller = {
 		})
 		let pedidoComment = db.Comments
 			.findAll({
+				include: [{association: "user"}] ,
 				where:{
 					product_id: req.params.id
 				},
 				order: [
 				['id', 'DESC']
 				]
+				
 			})
 		Promise.all([pedidoProduct, pedidoComment])
         	.then(function([product, comment]){
